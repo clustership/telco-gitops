@@ -18,3 +18,4 @@ generatorOptions:
 
 resources:
 - 01-argocd-telco-common.yaml
+- 02-argocd-rhsm.yaml

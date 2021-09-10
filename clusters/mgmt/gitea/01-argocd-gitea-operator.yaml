@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: advanced-cluster-management
+  name: gitea
   namespace: telco-gitops
 spec:
   # The argocd project the application belongs to
@@ -14,7 +14,7 @@ spec:
   source:
     repoURL: 'https://github.com/clustership/telco-gitops.git'
     targetRevision: HEAD
-    path: base/operator/gitea
+    path: base/operators/gitea
     directory:
       recurse: false
   # Sync policy

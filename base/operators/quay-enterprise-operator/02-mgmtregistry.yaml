@@ -12,7 +12,7 @@ spec:
       kind: clair
     - managed: true
       kind: postgres
-    - managed: false
+    - managed: true
       kind: objectstorage
     - managed: true
       kind: redis

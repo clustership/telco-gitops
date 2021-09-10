@@ -13,4 +13,4 @@ bases:
   # Common Telco Optimizations
   # - ../../base/configs/telco-optimized
   # OpenShift ElasticSearch
-  - ../../base/operators/openshift-rhsm
+  - ../../base/operators/openshift-service-mesh

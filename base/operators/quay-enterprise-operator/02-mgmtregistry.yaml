@@ -6,7 +6,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
-  # configBundleSecret: my-config-bundle
+  configBundleSecret: my-config-bundle
   components:
     - managed: true
       kind: clair

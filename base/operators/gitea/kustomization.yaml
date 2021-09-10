@@ -5,3 +5,4 @@ kind: Kustomization
 resources:
 - https://raw.githubusercontent.com/redhat-gpte-devopsautomation/gitea-operator/master/catalog_source.yaml
 - 01-gitea-namespace.yaml
+- 02-install.yaml

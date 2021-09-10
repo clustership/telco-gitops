@@ -24,7 +24,7 @@ bases:
   # OpenShift Container storage
   # - ../../base/operators/openshift-container-storage
   # Quay Enterprise
-  # - ../../base/operators/quay-enterprise-operator
+  - ../../base/operators/quay-enterprise-operator
   # OpenShift Logging
   # - ../../base/operators/openshift-logging
   #

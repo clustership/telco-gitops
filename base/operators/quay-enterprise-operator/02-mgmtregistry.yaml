@@ -2,6 +2,9 @@ apiVersion: quay.redhat.com/v1
 kind: QuayRegistry
 metadata:
   name: mgmtcluster-registry
+  namespace: quay-enterprise
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
   components:
     - managed: true

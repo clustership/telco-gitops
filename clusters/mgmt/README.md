@@ -27,3 +27,12 @@ echo $ARGOCD_HOST
 ```
 
 ### Create ArgoCD application to deploy ACM
+
+Red Hat Advanced Cluster Management can be deployed and configured automatically using ArgoCD application:
+
+```bash
+oc apply -k ./cluster/mgmt/rhacm-operator
+```
+
+Looking at the blueprint, hive is also patched to activate assisted service with ACM.
+

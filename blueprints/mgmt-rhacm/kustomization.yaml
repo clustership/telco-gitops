@@ -21,11 +21,14 @@ bases:
   ##- ../../base/operators/assisted-installer
   # Red Hat Advanced Cluster Manager for Kubernetes
   - ../../base/operators/advanced-cluster-management
-  # We need assisted service running too
-  - ../../base/operators/hive
   # OpenShift Container storage
   # - ../../base/operators/openshift-container-storage
   # Quay Enterprise
   # - ../../base/operators/quay-enterprise-operator
   # OpenShift Logging
   # - ../../base/operators/openshift-logging
+  #
+  # Config section
+  #
+  # We need assisted service running too
+  - ../../base/configs/hive

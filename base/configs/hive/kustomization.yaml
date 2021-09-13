@@ -8,5 +8,3 @@ resources:
 # - 03-clusterimageset-4.8.0-nightly.yaml
 - 03-clusterimageset-4.8.2.yaml
 - 03-clusterimageset-4.8.5.yaml
-- 03-clusterimageset-4.8.9.yaml
-- 03-clusterimageset-4.8.x.yaml

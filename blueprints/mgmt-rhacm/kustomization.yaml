@@ -12,9 +12,9 @@ bases:
   # Common Telco Optimizations
   # - ../../base/configs/telco-optimized
   # OpenShift GitOps
-  - ../../base/operators/openshift-gitops
+  # - ../../base/operators/openshift-gitops
   # OpenShift Pipelines
-  - ../../base/operators/openshift-pipelines
+  # - ../../base/operators/openshift-pipelines
   # OpenShift Serverless
   ##- ../../base/operators/openshift-serverless
   # # Assisted Installer (now Infrastructre Operator)

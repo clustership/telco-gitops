@@ -18,4 +18,3 @@ generatorOptions:
 
 bases:
 - ../../../base/operators/openshift-gitops
-- ../../../base/configs/telco-gitops

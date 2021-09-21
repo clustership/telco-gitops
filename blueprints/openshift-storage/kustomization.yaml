@@ -17,3 +17,7 @@ bases:
   - ../../base/operators/local-storage-operator
   # OpenShift Container storage
   - ../../base/operators/openshift-container-storage
+  #
+  # OCS config
+  #
+  - ../../base/configs/openshift-container-storage

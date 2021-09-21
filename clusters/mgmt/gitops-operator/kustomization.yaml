@@ -18,4 +18,4 @@ generatorOptions:
 
 bases:
 - ../../../base/operators/openshift-gitops
-- ../../../base/configs/openshift-gitops
+# - ../../../base/configs/openshift-gitops

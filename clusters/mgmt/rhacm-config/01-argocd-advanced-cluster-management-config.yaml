@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: advanced-cluster-management
+  name: advanced-cluster-management-configs
   namespace: openshift-gitops
 spec:
   # The argocd project the application belongs to

@@ -13,5 +13,7 @@ generatorOptions:
     argocd.argoproj.io/sync-options: Prune=false
 
 bases:
+  # OpenShift Local storage
+  - ../../base/operators/local-storage-operator
   # OpenShift Container storage
   - ../../base/operators/openshift-container-storage

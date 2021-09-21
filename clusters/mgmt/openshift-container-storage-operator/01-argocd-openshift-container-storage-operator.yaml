@@ -4,6 +4,8 @@ kind: Application
 metadata:
   name: openshift-container-storage-operator
   namespace: openshift-gitops
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
   # The argocd project the application belongs to
   project: default

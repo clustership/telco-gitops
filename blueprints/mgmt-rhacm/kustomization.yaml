@@ -5,6 +5,13 @@ kind: Kustomization
 commonLabels:
   telco-gitops/mgmt: telco-gitops
 
+generatorOptions:
+  # Annotations to work around automatically generated resoruces
+  # to avoid ArgoCD reporing out-of-sync
+  annotations:
+    argcd.argoproj.io/compare-options: IgnoreExtraneous
+    argocd.argoproj.io/sync-options: Prune=false
+
 bases:
   #####################################################
   # Operators for MGMT Clusters

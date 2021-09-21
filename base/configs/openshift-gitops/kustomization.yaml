@@ -1,0 +1,10 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - 00-openshift-gitops-ns.yaml
+  # WARNING: THIS MAKES THE ArgoCD instance cluster-admin
+  # DO NOT USE INSTANCE FOR GENERAL USERS
+  # telco-gitops ArgoCD instance
+  - 05-argocd-openshift-gitops.yaml

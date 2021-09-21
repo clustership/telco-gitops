@@ -19,4 +19,4 @@ bases:
   # Config section
   #
   # We need assisted service running too
-  - ../../base/configs/hive
+  # - ../../base/configs/hive

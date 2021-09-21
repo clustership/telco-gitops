@@ -3,7 +3,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: advanced-cluster-management
-  namespace: telco-gitops
+  namespace: openshift-gitops
 spec:
   # The argocd project the application belongs to
   project: default

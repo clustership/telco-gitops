@@ -12,7 +12,7 @@ The goal is to get everything under the control of GitOps operator (ArgoCD). But
 ### Deploy gitops operator
 
 ```bash
-oc apply -k ./cluster/mgmt/gitops-operator
+oc apply -k ./clusters/mgmt/gitops-operator
 
 ```
 

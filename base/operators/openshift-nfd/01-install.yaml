@@ -24,6 +24,6 @@ metadata:
 spec:
   channel: "4.8"
   installPlanApproval: Automatic
-  name: sriov-network-operator
+  name: nfd
   source: mirrored-rh-operator-catalog
   sourceNamespace: openshift-marketplace

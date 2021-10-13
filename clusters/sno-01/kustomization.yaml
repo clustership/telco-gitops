@@ -26,7 +26,7 @@ generatorOptions:
 bases:
 - ../../base/configs/all-common
 - ../../blueprints/ran-du-sno
-- ../../blueprints/openshift-nfd
+# - ../../blueprints/openshift-nfd
 
 #  # Common Operators
 #  - ../../base/configs/all-common

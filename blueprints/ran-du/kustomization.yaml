@@ -18,6 +18,8 @@ bases:
   # - ../../base/configs/telco-optimized
   # Enable SCTP
   - ../../base/configs/sctp
+  # Node Features Discovery
+  - ../../base/operators/openshift-nfd
   # SRIOV
   - ../../base/operators/openshift-sriov-network-operator
   # PAO (4.7)

@@ -40,3 +40,9 @@ bases:
 
 patches:
 #  - ./00-patch.yaml
+- path: ./02-patch-mcp-role.yaml
+  target:
+    group: operators.coreos.com
+    version: v1alpha1
+    kind: Subscription
+    name: ptp-operator-subscription

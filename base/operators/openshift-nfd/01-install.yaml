@@ -25,5 +25,5 @@ spec:
   channel: "4.8"
   installPlanApproval: Automatic
   name: nfd
-  source: mirrored-rh-operator-catalog
+  source: redhat-operator-index
   sourceNamespace: openshift-marketplace

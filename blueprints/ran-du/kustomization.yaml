@@ -1,0 +1,34 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+commonLabels:
+  telco-gitops/ran-du: telco-gitops
+
+bases:
+  # Configure chrony
+  # - ../../base/configs/chrony
+  # Identity Provider (htpasswd)
+  # - ../../base/configs/idp-htpasswd
+  # local storage operator
+  - ../../base/operators/local-storage-operator
+  # LSO auto-discovery label
+  - ../../base/configs/lso
+  # Common Telco Optimizations
+  - ../../base/configs/telco-optimized
+  # Enable SCTP
+  - ../../base/configs/sctp
+  # SRIOV
+  - ../../base/operators/openshift-sriov-network-operator
+  # PAO (4.7)
+  - ../../base/operators/openshift-performance-addon-operator
+  # PTP
+  - ../../base/operators/openshift-ptp
+  # Intel vRAN Acceleration Operators
+  # - ../../base/operators/vran-acceleration-operators
+  # Removes OCP Web Console
+  # - ../../configs/web-console
+
+resources:
+  # - 02-ran-du-mcp.yaml
+  - 50-ran-du-disable-chronyd.yaml

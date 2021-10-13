@@ -21,9 +21,9 @@ bases:
   # SRIOV
   - ../../base/operators/openshift-sriov-network-operator
   # PAO (4.7)
-  # - ../../base/operators/openshift-performance-addon-operator
+  - ../../base/operators/openshift-performance-addon-operator
   # PTP
-  # - ../../base/operators/openshift-ptp
+  - ../../base/operators/openshift-ptp
   # Intel vRAN Acceleration Operators
   # - ../../base/operators/vran-acceleration-operators
   # Removes OCP Web Console

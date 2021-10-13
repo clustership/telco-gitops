@@ -1,4 +1,3 @@
-
 ---
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
@@ -7,7 +6,14 @@ commonLabels:
   # topology.kubernetes.io/region: demo
   # Each SITE_ID is a different zone
   #topology.kubernetes.io/zone: sample-zone
+  telco-gitops/cluster-name: poc2-sno-01
   telco-gitops/cluster-type: sno
+
+# commonAnnotations:
+#   # Annotations to work around automatically generated resoruces
+#   # to avoid ArgoCD reporing out-of-sync
+#   argcd.argoproj.io/compare-options: IgnoreExtraneous
+#   argocd.argoproj.io/sync-options: Prune=false
 
 generatorOptions:
   # Annotations to work around automatically generated resoruces
@@ -16,5 +22,21 @@ generatorOptions:
     argcd.argoproj.io/compare-options: IgnoreExtraneous
     argocd.argoproj.io/sync-options: Prune=false
 
-resources:
-- 01-operators.yaml
+
+bases:
+- ../../base/configs/all-common
+- ../../blueprints/ran-du-sno
+- ../../blueprints/openshift-nfd
+
+#  # Common Operators
+#  - ../../base/configs/all-common
+#  - github.com/openshift-telco/telco-gitops/base/configs/all-common?ref=main
+#  # Import blueprint cluster definitions
+#  - ../../blueprints/combined-ran
+#  - github.com/openshift-telco/telco-gitops/blueprints/combined-ran?ref=main
+#  # OpenShift Logging
+#  # - ../../base/operators/openshift-logging
+#  - github.com/openshift-telco/telco-gitops/base/operators/openshift-logging?ref=main
+
+patches:
+#  - ./00-patch.yaml

@@ -13,7 +13,7 @@ spec:
   source:
     repoURL: 'https://github.com/clustership/telco-gitops.git'
     targetRevision: HEAD
-    path: blueprints/openshift-nfd
+    path: clusters/sno-01
     directory:
       recurse: false
   # Sync policy

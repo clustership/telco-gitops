@@ -11,19 +11,19 @@ bases:
   # Identity Provider (htpasswd)
   # - ../../base/configs/idp-htpasswd
   # local storage operator
-  - ../../base/operators/local-storage-operator
+  # - ../../base/operators/local-storage-operator
   # LSO auto-discovery label
-  - ../../base/configs/lso
+  # - ../../base/configs/lso
   # Common Telco Optimizations
-  - ../../base/configs/telco-optimized
+  # - ../../base/configs/telco-optimized
   # Enable SCTP
-  - ../../base/configs/sctp
+  # - ../../base/configs/sctp
   # SRIOV
-  - ../../base/operators/openshift-sriov-network-operator
+  # - ../../base/operators/openshift-sriov-network-operator
   # PAO (4.7)
-  - ../../base/operators/openshift-performance-addon-operator
+  # - ../../base/operators/openshift-performance-addon-operator
   # PTP
-  - ../../base/operators/openshift-ptp
+  # - ../../base/operators/openshift-ptp
   # Intel vRAN Acceleration Operators
   # - ../../base/operators/vran-acceleration-operators
   # Removes OCP Web Console

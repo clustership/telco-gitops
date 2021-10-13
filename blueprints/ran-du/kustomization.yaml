@@ -20,6 +20,8 @@ bases:
   - ../../base/configs/sctp
   # Node Features Discovery
   - ../../base/operators/openshift-nfd
+  # Node Features Discovery configuration
+  - ../../base/configs/openshift-nfd
   # SRIOV
   - ../../base/operators/openshift-sriov-network-operator
   # PAO (4.7)

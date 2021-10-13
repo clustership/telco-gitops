@@ -17,9 +17,9 @@ bases:
   # Common Telco Optimizations
   # - ../../base/configs/telco-optimized
   # Enable SCTP
-  # - ../../base/configs/sctp
+  - ../../base/configs/sctp
   # SRIOV
-  # - ../../base/operators/openshift-sriov-network-operator
+  - ../../base/operators/openshift-sriov-network-operator
   # PAO (4.7)
   # - ../../base/operators/openshift-performance-addon-operator
   # PTP

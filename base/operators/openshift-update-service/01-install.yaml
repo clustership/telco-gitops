@@ -25,7 +25,7 @@ spec:
   channel: v1
   installPlanApproval: Automatic
   name: cincinnati-operator
-  source: redhat-operators
+  source: mirrored-rh-operator-catalog
   sourceNamespace: openshift-marketplace
 
 ## Query OpenShift's Update Service Endpoint

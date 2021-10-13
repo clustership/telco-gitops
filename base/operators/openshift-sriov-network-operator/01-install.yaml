@@ -25,5 +25,5 @@ spec:
   channel: "4.8"
   installPlanApproval: Automatic
   name: sriov-network-operator
-  source: redhat-operator-index
+  source: mirrored-rh-operator-catalog
   sourceNamespace: openshift-marketplace

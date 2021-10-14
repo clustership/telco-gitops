@@ -28,10 +28,10 @@ spec:
 apiVersion: sriovnetwork.openshift.io/v1
 kind: SriovNetworkNodePolicy
 metadata:
-  name: vdusriov-config-dpdk-ens1f1
+  name: vdusriov-config-netdevice-ens1f1
   namespace: openshift-sriov-network-operator
 spec:
-  resourceName: vdusriovnetworkdpdk_ens1f1
+  resourceName: vdusriovnetworknetdevice_ens1f1
   nodeSelector:
     feature.node.kubernetes.io/network-sriov.capable: "true"
   numVfs: 40

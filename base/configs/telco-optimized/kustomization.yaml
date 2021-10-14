@@ -1,0 +1,20 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+commonLabels:
+  telco-gitops/rwn: telco-gitops
+
+resources:
+- 00-master-schedulable.yaml
+# - 01-config-ingress.yaml
+- 01-max-pods-500.yaml
+# - 50-worker-fix-ipi-rwn.yaml
+
+patchesJson6902:
+- target:
+    group: machineconfiguration.openshift.io
+    version: v1
+    kind: MachineConfigPool
+    name: master
+  path: 00-mcp-patches.yaml

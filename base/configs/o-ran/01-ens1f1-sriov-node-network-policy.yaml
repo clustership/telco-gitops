@@ -13,7 +13,6 @@ spec:
     feature.node.kubernetes.io/network-sriov.capable: "true"
   priority: 50
   deviceType: vfio-pci
-  priority: 10
   #mtu: 1500
   # Must account for the total of netdevices + vfio devices in the same PFs
   numVfs: 40
@@ -35,7 +34,6 @@ spec:
     feature.node.kubernetes.io/network-sriov.capable: "true"
   priority: 50
   deviceType: netdevice
-  priority: 10
   #mtu: 1500
   # Must account for the total of netdevices + vfio devices in the same PFs
   numVfs: 40

@@ -15,7 +15,7 @@ bases:
   # LSO auto-discovery label
   # - ../../base/configs/lso
   # Common Telco Optimizations
-  # - ../../base/configs/telco-optimized
+  - ../../base/configs/telco-optimized
   # Enable SCTP, VLAN, vhost_net
   - ../../base/configs/network_modules
   # Node Features Discovery

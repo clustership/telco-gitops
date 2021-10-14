@@ -1,0 +1,42 @@
+---
+###############################################################################
+# O-RAN ens1f0 - VF type vfio (e.g. fp-plane)
+###############################################################################
+apiVersion: sriovnetwork.openshift.io/v1
+kind: SriovNetworkNodePolicy
+metadata:
+  name: vdusriov-config-dpdk-ens1f0
+  namespace: openshift-sriov-network-operator
+spec:
+  resourceName: vdusriovnetworkdpdk_ens1f0
+  nodeSelector:
+    feature.node.kubernetes.io/network-sriov.capable: "true"
+  priority: 50
+  deviceType: vfio-pci
+  #mtu: 1500
+  # Must account for the total of netdevices + vfio devices in the same PFs
+  numVfs: 40
+  nicSelector:
+    pfNames:
+    - ens1f0#20-39
+---
+###############################################################################
+# O-RAN ens1f0  - VF type netdevice (e.g. du-plane)
+###############################################################################
+apiVersion: sriovnetwork.openshift.io/v1
+kind: SriovNetworkNodePolicy
+metadata:
+  name: vdusriov-config-netdevice-ens1f0
+  namespace: openshift-sriov-network-operator
+spec:
+  resourceName: vdusriovnetworknetdevice_ens1f0
+  nodeSelector:
+    feature.node.kubernetes.io/network-sriov.capable: "true"
+  priority: 50
+  deviceType: netdevice
+  #mtu: 1500
+  # Must account for the total of netdevices + vfio devices in the same PFs
+  numVfs: 40
+  nicSelector:
+    pfNames:
+    - ens1f0#0-19

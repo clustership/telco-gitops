@@ -11,7 +11,6 @@ spec:
   resourceName: vdusriovnetworkdpdk_ens1f1
   nodeSelector:
     feature.node.kubernetes.io/network-sriov.capable: "true"
-  numVfs: 40
   priority: 50
   deviceType: vfio-pci
   priority: 10
@@ -34,7 +33,6 @@ spec:
   resourceName: vdusriovnetworknetdevice_ens1f1
   nodeSelector:
     feature.node.kubernetes.io/network-sriov.capable: "true"
-  numVfs: 40
   priority: 50
   deviceType: netdevice
   priority: 10

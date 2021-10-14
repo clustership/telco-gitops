@@ -5,6 +5,8 @@ kind: PtpConfig
 metadata:
   name: slave-config0
   namespace: openshift-ptp
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
   profile:
     - name: "slave-config0"

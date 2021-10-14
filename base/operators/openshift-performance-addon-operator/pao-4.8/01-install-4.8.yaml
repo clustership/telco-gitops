@@ -9,5 +9,5 @@ spec:
   installPlanApproval: Automatic
   name: performance-addon-operator
   # Modify source name of the catalogsource for air-gapped deployments
-  source:  redhat-operators
+  source:  mirrored-rh-operator-catalog
   sourceNamespace: openshift-marketplace

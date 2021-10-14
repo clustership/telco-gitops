@@ -25,5 +25,5 @@ spec:
   channel: "4.8"
   installPlanApproval: Automatic
   name: ptp-operator
-  source: redhat-operators
+  source: mirrored-rh-operator-catalog
   sourceNamespace: openshift-marketplace

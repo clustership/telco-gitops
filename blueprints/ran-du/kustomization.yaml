@@ -18,14 +18,18 @@ bases:
   # - ../../base/configs/telco-optimized
   # Enable SCTP
   - ../../base/configs/sctp
+  # Node Features Discovery
+  - ../../base/operators/openshift-nfd
+  # Node Features Discovery configuration
+  - ../../base/configs/openshift-nfd
   # SRIOV
   - ../../base/operators/openshift-sriov-network-operator
   # SRIOV Config
   - ../../base/configs/o-ran
   # PAO (4.7)
-  # - ../../base/operators/openshift-performance-addon-operator
+  - ../../base/operators/openshift-performance-addon-operator
   # PTP
-  # - ../../base/operators/openshift-ptp
+  - ../../base/operators/openshift-ptp
   # Intel vRAN Acceleration Operators
   # - ../../base/operators/vran-acceleration-operators
   # Removes OCP Web Console

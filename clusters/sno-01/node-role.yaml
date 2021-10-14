@@ -3,5 +3,6 @@ kind: Node
 metadata:
   labels:
     node-role.kubernetes.io/ran-du: ""
+    ran.openshift.io/ptp-ran-du: ""
   name: poc2.nokia-ocp-poc.espoo.nsn-rdnet.net
 spec: {}

@@ -32,6 +32,8 @@ bases:
   - ../../base/configs/pao
   # PTP
   - ../../base/operators/openshift-ptp
+  # PTP Config
+  - ../../base/configs/ptp
   # Intel vRAN Acceleration Operators
   # - ../../base/operators/vran-acceleration-operators
   # Removes OCP Web Console

@@ -20,6 +20,8 @@ bases:
   - ../../base/configs/sctp
   # SRIOV
   - ../../base/operators/openshift-sriov-network-operator
+  # SRIOV Config
+  - ../../base/configs/o-ran
   # PAO (4.7)
   # - ../../base/operators/openshift-performance-addon-operator
   # PTP

@@ -16,8 +16,8 @@ bases:
   # - ../../base/configs/lso
   # Common Telco Optimizations
   # - ../../base/configs/telco-optimized
-  # Enable SCTP
-  - ../../base/configs/sctp
+  # Enable SCTP, VLAN, vhost_net
+  - ../../base/configs/network_modules
   # Node Features Discovery
   - ../../base/operators/openshift-nfd
   # Node Features Discovery configuration

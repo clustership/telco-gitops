@@ -1,0 +1,19 @@
+---
+# SNO requires to match master role
+apiVersion: machineconfiguration.openshift.io/v1
+kind: MachineConfig
+metadata:
+  labels:
+    machineconfiguration.openshift.io/role: master
+  name: 50-master-enable-vhost-net
+spec:
+  config:
+    ignition:
+      version: 3.2.0
+    storage:
+      files:
+        - contents:
+            source: data:text/plain;charset=utf-8,vhost_net
+          mode: 420
+          overwrite: true
+          path: /etc/modules-load.d/vhost_net-load.conf

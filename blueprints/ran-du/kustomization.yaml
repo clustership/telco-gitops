@@ -26,8 +26,10 @@ bases:
   - ../../base/operators/openshift-sriov-network-operator
   # SRIOV Config
   - ../../base/configs/o-ran
-  # PAO (4.7)
+  # PAO (4.8)
   - ../../base/operators/openshift-performance-addon-operator
+  # PAO Config
+  - ../../base/configs/pao
   # PTP
   - ../../base/operators/openshift-ptp
   # Intel vRAN Acceleration Operators

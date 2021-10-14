@@ -6,15 +6,17 @@ commonLabels:
   telco-gitops/rwn: telco-gitops
 
 resources:
+- 00-mcp-master.yaml
 - 00-master-schedulable.yaml
 # - 01-config-ingress.yaml
 - 01-max-pods-500.yaml
+- 02-high-pids-limit.yaml
+- 02-pod-pids-limit.yaml
 # - 50-worker-fix-ipi-rwn.yaml
 
-patchesJson6902:
-- target:
-    group: machineconfiguration.openshift.io
-    version: v1
-    kind: MachineConfigPool
-    name: master
-  path: 00-mcp-patches.yaml
+# patches:
+# - target:
+#     group: machineconfiguration.openshift.io
+#     version: v1
+#     kind: MachineConfigPool
+#   path: 00-mcp-patches.yaml

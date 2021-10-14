@@ -3,5 +3,5 @@ kind: Node
 metadata:
   labels:
     node-role.kubernetes.io/ran-du: ""
-  name: ai-dell-sno-01
+  name: poc2.nokia-ocp-poc.espoo.nsn-rdnet.net
 spec: {}

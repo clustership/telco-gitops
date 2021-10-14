@@ -11,7 +11,7 @@ metadata:
 spec:
   profile:
     - name: "ptp-ran-du"
-      interface: "ens1f1"
+      interface: "ens93f1"
       ptp4lOpts: "-2 --summary_interval -4 -m -s -H"
       phc2sysOpts: "-a -r -n 24"
       #phc2sysOpts: "-s <intf name> -w -m -R 8 -n 24"

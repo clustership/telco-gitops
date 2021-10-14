@@ -4,6 +4,8 @@
 apiVersion: machineconfiguration.openshift.io/v1
 kind: KubeletConfig
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "20"
   name: worker-kubeconfig-fix
 spec:
   machineConfigPoolSelector:

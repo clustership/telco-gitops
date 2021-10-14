@@ -4,6 +4,8 @@
 apiVersion: machineconfiguration.openshift.io/v1
 kind: ContainerRuntimeConfig
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "20"
  name: set-pids-limit
 spec:
  machineConfigPoolSelector:

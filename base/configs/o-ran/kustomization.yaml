@@ -4,7 +4,8 @@ kind: Kustomization
 
 resources:
 - 00-unsupported-nic-ids.yaml
-- 01-ens1f0-sriov-node-network-policy.yaml
-- 02-ens4f1-sriov-node-network-policy.yaml
+- 01-ens93f1-sriov-node-network-policy.yaml
+# - 01-ens1f0-sriov-node-network-policy.yaml
+# - 02-ens4f1-sriov-node-network-policy.yaml
 # - 01-ens1f1-sriov-node-network-policy.yaml
 # - 02-ens9f0-sriov-node-network-policy.yaml

@@ -1,4 +1,8 @@
 - op: add
-  path: "/metadata/labels"
+  path: /metadata/labels
   value:
-  - custom-crio: high-pid-limit
+    custom-crio: high-pid-limit
+- op: add
+  path: /metadata/labels
+  value:
+    custom-kubelet: small-pods

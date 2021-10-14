@@ -1,0 +1,8 @@
+apiVersion: machineconfiguration.openshift.io/v1
+kind: MachineConfigPool
+metadata:
+  name: master
+  labels:
+    custom-crio: high-pid-limit
+    custom-kubelet: small-pods
+spec: {}

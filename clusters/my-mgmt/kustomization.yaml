@@ -29,6 +29,7 @@ bases:
 resources:
 - 01-public-certificates.yaml
 - 02-argocd-certs.yaml
+- gitops-application.yaml
 # patchesStrategicMerge:
 # - node-role.yaml
 #  - ./00-patch.yaml

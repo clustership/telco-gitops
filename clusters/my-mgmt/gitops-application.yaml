@@ -2,13 +2,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: sno-operators
+  name: hubcluster-deploy
   namespace: openshift-gitops
 spec:
   # The argocd project the application belongs to
   project: default
   destination:
-    server: 'https://api.poc2.nokia-ocp-poc.espoo.nsn-rdnet.net:6443'
+    name: in-cluster
   # Source of the application manifests
   source:
     repoURL: 'https://github.com/clustership/telco-gitops.git'

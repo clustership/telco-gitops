@@ -5,4 +5,4 @@
 - op: add
   path: /metadata/labels
   value:
-    custom-kubelet: small-pods
+    custom-kubelet/small-pods: ""

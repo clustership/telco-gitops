@@ -10,6 +10,6 @@ metadata:
 spec:
   machineConfigPoolSelector:
     matchLabels:
-      custom-kubelet: small-pods 
+      custom-kubelet/small-pods: ""
   kubeletConfig:
       podPidsLimit: 4096

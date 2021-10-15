@@ -6,5 +6,6 @@ metadata:
     argocd.argoproj.io/sync-wave: "10"
   labels:
     custom-crio: high-pid-limit
-    custom-kubelet: small-pods
+    custom-kubelet/small-pods: ""
+    custom-kubelet/unsafe-sysctl: ""
 spec: {}

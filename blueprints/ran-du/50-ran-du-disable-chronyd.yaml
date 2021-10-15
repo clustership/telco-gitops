@@ -3,7 +3,8 @@ apiVersion: machineconfiguration.openshift.io/v1
 kind: MachineConfig
 metadata:
   labels:
-    machineconfiguration.openshift.io/role: ran-du
+    # machineconfiguration.openshift.io/role: ran-du
+    machineconfiguration.openshift.io/role: master
   name: 50-ran-du-disable-chronyd
 spec:
   config:

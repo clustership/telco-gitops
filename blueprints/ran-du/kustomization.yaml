@@ -30,6 +30,8 @@ bases:
   - ../../base/operators/openshift-performance-addon-operator
   # PAO Config
   - ../../base/configs/pao
+  # Unsafe sysctl Config
+  - ../../base/configs/unsafe-sysctl
   # PTP
   - ../../base/operators/openshift-ptp
   # PTP Config

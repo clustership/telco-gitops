@@ -1,0 +1,38 @@
+# Deploy a gitops managed hubCluster
+
+
+## Deploy OpenShift GitOps operator and trigger post-configuration
+
+First of all, GitOps operator must be deployed on the management cluster:
+
+```bash
+oc apply -k my-mgmt
+```
+
+## Download argocd cli
+
+For MacOS
+
+```bash
+brew install argocd
+```
+
+For RHEL/CentOS
+
+```bash
+sudo curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+sudo chmod +x /usr/local/bin/argocd
+```
+
+## Get argocd admin password and argocd web-ui url
+
+Get access to ArgoCD interface:
+
+```bash
+ARGOCD_ADMIN_PASSWORD=$(oc -n openshift-gitops get secret openshift-gitops-cluster -o jsonpath='{.data.admin\.password}' | base64 -d)
+echo $ARGOCD_ADMIN_PASSWORD
+ARGOCD_HOST="$(oc -n openshift-gitops get route openshift-gitops-server -o jsonpath='{.spec.host}')"
+echo $ARGOCD_HOST
+argocd login --username admin --password ${ARGOCD_ADMIN_PASSWORD} ${ARGOCD_HOST}
+```
+

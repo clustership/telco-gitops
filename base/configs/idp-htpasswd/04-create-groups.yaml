@@ -4,4 +4,11 @@ kind: Group
 metadata:
   name: Administrators 
 users:
-- xymox
+- nokiaadmin
+---
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: Operations 
+users:
+- operations

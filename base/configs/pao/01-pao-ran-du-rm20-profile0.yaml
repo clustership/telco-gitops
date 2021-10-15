@@ -8,9 +8,18 @@ kind: PerformanceProfile
 metadata:
   name: ran-du-profile0
 spec:
+  additionalKernelArgs:
+  - nmi_watchdog=0
+  - audit=0
+  - mce=off
+  - processor.max_cstate=1
+  - idle=poll
+  - intel_idle.max_cstate=0
+  - nohz=off
   cpu:
     isolated: "4-31"
     reserved: "0-3"
+  globallyDisableIrqLoadBalancing: false
   # net:
   #   userLevelNetworking: true
   #   devices:
@@ -27,5 +36,7 @@ spec:
     topologyPolicy: best-effort
   realTimeKernel:
     enabled: false
+  machineConfigPoolSelector:
+    pools.operator.machineconfiguration.openshift.io/master: ""
   nodeSelector:
     node-role.kubernetes.io/master: ""

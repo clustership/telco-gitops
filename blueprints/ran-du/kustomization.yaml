@@ -32,6 +32,8 @@ bases:
   - ../../base/configs/pao
   # Unsafe sysctl Config
   - ../../base/configs/unsafe-sysctl
+  # Hack to merge all kubeletconfig (must be removed later)
+  - ../../base/configs/kubeletconfig-hack
   # PTP
   - ../../base/operators/openshift-ptp
   # PTP Config

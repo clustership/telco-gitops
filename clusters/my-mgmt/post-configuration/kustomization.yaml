@@ -38,8 +38,5 @@ bases:
 #  # - ../../base/operators/openshift-logging
 #  - github.com/openshift-telco/telco-gitops/base/operators/openshift-logging?ref=main
 
-resources:
-- node-role.yaml
-# patchesStrategicMerge:
-# - node-role.yaml
-#  - ./00-patch.yaml
+#resources:
+#- node-role.yaml

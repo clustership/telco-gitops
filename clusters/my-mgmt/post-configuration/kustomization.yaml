@@ -6,8 +6,8 @@ commonLabels:
   # topology.kubernetes.io/region: demo
   # Each SITE_ID is a different zone
   #topology.kubernetes.io/zone: sample-zone
-  telco-gitops/cluster-name: poc2-sno-01
-  telco-gitops/cluster-type: sno
+  telco-gitops/cluster-name: hubcluster
+  telco-gitops/cluster-type: hubcluster
 
 # commonAnnotations:
 #   # Annotations to work around automatically generated resoruces
@@ -24,8 +24,8 @@ generatorOptions:
 
 
 bases:
-- ../../base/configs/all-common
-- ../../blueprints/ran-du-sno
+# - ../../base/configs/all-common
+- ../../../blueprints/hubcluster
 # - ../../blueprints/openshift-nfd
 
 #  # Common Operators

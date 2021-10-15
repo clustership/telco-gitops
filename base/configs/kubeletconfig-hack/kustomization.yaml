@@ -1,0 +1,12 @@
+#
+# Due to BZ https://bugzilla.redhat.com/show_bug.cgi?id=1967911
+# Custom kubeletconfig (unsafe sysctls for example) are not merge in MachineConfig
+# It is a problem with performanceProfile which generate its own Kubeletconfig
+# So we have to merge everything waiting for a potential solution in 4.9
+#
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- 01-kubeletconfig-merged.yaml

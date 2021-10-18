@@ -1,0 +1,15 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+bases:
+  # Deploy OpenShift GitOps operator
+  - ../../base/operators/openshift-gitops/
+
+## NOTE: This needs to be fix
+
+# resources:
+#   - 01-mcp.yaml
+
+# patches:
+# - 01-patch-mcp-master.yaml

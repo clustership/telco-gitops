@@ -5,7 +5,10 @@ kind: Kustomization
 bases:
 # Deploy RHACM
 - ../../base/operators/advanced-cluster-management/
-
+#
+# Patch hiveConfig to get assisted-service running
+#
+- ../../base/configs/hive
 ## NOTE: This needs to be fix
 
 # resources:

@@ -6,7 +6,7 @@ metadata:
   labels:
     app: assisted-service
 data:
-  ca-bundle.crt: |
+  xca-bundle.crt: |
     -----BEGIN CERTIFICATE-----
     MIIEQzCCAyugAwIBAgIUAgnxKhMSOyTgu8buNovvjhVxtIwwDQYJKoZIhvcNAQEL
     BQAwgagxCzAJBgNVBAYTAkRFMRAwDgYDVQQIDAdCYXZhcmlhMQ8wDQYDVQQHDAZN

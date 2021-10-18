@@ -13,7 +13,7 @@ metadata:
 spec:
   server:
     route:
-      router: ${ARGOCD_HOST}
+      host: ${ARGOCD_HOST}
       enabled: true
       tls:
         insecureEdgeTerminationPolicy: Redirect

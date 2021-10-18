@@ -1,3 +1,24 @@
+# Preparation
+
+## Remove key password for TLS certs
+
+```bash
+openssl rsa -in mgmt_espoo_nsn-rdnet_net.key -out unencryed.key
+```
+
+## Copy certs and keys to the cluster deployment folder
+
+```bash
+mkdir -p certs
+cp fullchain.crt unencrypted.key certs
+```
+
+## Geneate embedded files with certs
+
+```bash
+./tools/xx
+```
+
 # Deploy a gitops managed hubCluster
 
 

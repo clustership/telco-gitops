@@ -9,6 +9,8 @@ bases:
 # Patch hiveConfig to get assisted-service running
 #
 - ../../base/configs/hive
+# Configure assisted-service
+- ../../base/configs/assisted-service
 ## NOTE: This needs to be fix
 
 # resources:

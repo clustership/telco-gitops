@@ -28,8 +28,15 @@ bases:
 
 resources:
 - 01-public-certificates.yaml
+- 01-ingress-cert.yaml
+#
+# don't use this one if you don't have login/password credentials configured in idp
+#
+# - 02-api-cert.yaml
 - 02-argocd-certs.yaml
-- gitops-application.yaml
+#
+# temporarely removed for debug purpose
+# - gitops-application.yaml
 # patchesStrategicMerge:
 # - node-role.yaml
 #  - ./00-patch.yaml

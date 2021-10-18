@@ -3,7 +3,7 @@
 CERT="$(cat certs/fullchain.crt | base64 -w0)"
 KEY="$(cat certs/server.key | base64 -w0)"
 
-cat << EOF > x-01-ingress-cert.yaml
+cat << EOF > x-01-public-certificates.yaml
 ---
 apiVersion: v1
 kind: Secret

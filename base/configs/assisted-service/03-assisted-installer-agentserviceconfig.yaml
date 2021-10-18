@@ -1,0 +1,26 @@
+apiVersion: agent-install.openshift.io/v1beta1
+kind: AgentServiceConfig
+metadata:
+  name: agent
+spec:
+  databaseStorage:
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+        storage: 20Gi
+  filesystemStorage:
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+        storage: 20Gi
+  mirrorRegistryRef:
+    name: "disconnected-mirror-config"
+  osImages:
+    - openshiftVersion: '4.8'
+      rootFSUrl: >-
+        http://192.168.168.36/rhcos/4.8/4.8.2/rhcos-live-rootfs.x86_64.img
+      url: >-
+        http://192.168.168.36/rhcos/4.8/4.8.2/rhcos-4.8.2-x86_64-live.x86_64.iso
+      version: 48.84.202107202156-0

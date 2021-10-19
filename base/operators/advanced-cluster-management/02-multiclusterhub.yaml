@@ -3,7 +3,7 @@ apiVersion: operator.open-cluster-management.io/v1
 kind: MultiClusterHub
 metadata:
   annotations:
-      argocd.argoproj.io/sync-wave: "15"
+      argocd.argoproj.io/sync-wave: "5"
   name: multiclusterhub
   namespace: open-cluster-management
 spec:

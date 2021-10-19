@@ -13,7 +13,7 @@ spec:
   source:
     repoURL: 'https://github.com/clustership/telco-gitops.git'
     targetRevision: HEAD
-    path: clusters/my-mgmt/post-configuration
+    path: clusters/rhpds-mgmt/post-configuration
     directory:
       recurse: false
   # Sync policy

@@ -36,7 +36,7 @@ resources:
 - 02-argocd-certs.yaml
 #
 # temporarely removed for debug purpose
-# - gitops-application.yaml
+- gitops-application.yaml
 # patchesStrategicMerge:
 # - node-role.yaml
 #  - ./00-patch.yaml

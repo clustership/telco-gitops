@@ -22,5 +22,5 @@ spec:
       rootFSUrl: >-
         http://192.168.168.36/rhcos/4.8/4.8.2/rhcos-live-rootfs.x86_64.img
       url: >-
-        http://192.168.168.36/rhcos/4.8/4.8.2/rhcos-4.8.2-x86_64-live.x86_64.iso
+        https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.9/4.9.0/rhcos-4.9.0-x86_64-live.x86_64.iso
       version: 48.84.202107202156-0

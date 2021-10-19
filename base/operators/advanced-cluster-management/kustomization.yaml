@@ -7,7 +7,6 @@ commonAnnotations:
   # "can not be managed when in namespaced mode"
   argocd.argoproj.io/compare-options: IgnoreExtraneous
   argocd.argoproj.io/sync-options: Prune=false
-  argocd.argoproj.io/sync-wave: "35"
   argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 
 resources:

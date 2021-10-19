@@ -11,7 +11,12 @@ bases:
 - ../../base/configs/hive
 # Configure assisted-service
 - ../../base/configs/assisted-service
-## NOTE: This needs to be fix
+
+#
+# Deploy OCS
+# on BM server, local-storage must be deployed first
+#
+- ../../base/operators/openshift-container-storage/
 
 # resources:
 #   - 01-mcp.yaml

@@ -22,6 +22,12 @@ bases:
 # Adapt it for BM servers
 - ../../base/configs/openshift-container-aws/
 
+#
+# Deploy Gitea
+#
+- ../../base/operators/gitea/
+
+#
 # resources:
 #   - 01-mcp.yaml
 

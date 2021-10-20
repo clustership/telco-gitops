@@ -8,4 +8,5 @@ resources:
   # DO NOT USE INSTANCE FOR GENERAL USERS
   # telco-gitops ArgoCD instance
   - 01-cli-job-sa-and-role.yaml
+  - 02-argocd-cluster-role.yaml
   # - 05-argocd-openshift-gitops.yaml

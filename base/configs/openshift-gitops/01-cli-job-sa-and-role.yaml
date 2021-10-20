@@ -42,10 +42,10 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: cli-job-sa
-    namespace: telco-gitops
+    namespace: openshift-gitops
 ---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: cli-job-sa
-  namespace: telco-gitops
+  namespace: openshift-gitops

@@ -10,6 +10,5 @@ commonAnnotations:
   argocd.argoproj.io/sync-wave: "10"
 
 resources:
-- https://raw.githubusercontent.com/redhat-gpte-devopsautomation/gitea-operator/master/catalog_source.yaml
-- 01-gitea-namespace.yaml
-- 02-install.yaml
+- 00-label-master-nodes-for-cephcluster.yaml
+- 01-ocs-storagecluster-compact-cluster.yaml

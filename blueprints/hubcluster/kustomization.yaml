@@ -17,6 +17,10 @@ bases:
 # on BM server, local-storage must be deployed first
 #
 - ../../base/operators/openshift-container-storage/
+#
+# OCS Config
+# Adapt it for BM servers
+- ../../base/configs/openshift-container-aws/
 
 # resources:
 #   - 01-mcp.yaml

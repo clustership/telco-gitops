@@ -20,7 +20,7 @@ bases:
 #
 # OCS Config
 # Adapt it for BM servers
-- ../../base/configs/openshift-container-aws/
+- ../../base/configs/openshift-container-storage-aws/
 
 #
 # Deploy Gitea

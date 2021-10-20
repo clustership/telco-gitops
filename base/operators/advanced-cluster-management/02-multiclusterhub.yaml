@@ -15,7 +15,6 @@ spec:
   # This uses the "local-cluster" namespace
   disableHubSelfManagement: false
 ---
----
 #
 # Wait for multiclusterhub instance to be ready to continue
 #

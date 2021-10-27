@@ -6,31 +6,34 @@ metadata:
   labels:
     app: assisted-service
 data:
-  xca-bundle.crt: |
+  ca-bundle.crt: |
     -----BEGIN CERTIFICATE-----
-    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
+    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
+    A95QNVbRTLtm8KPiGxvDl7I90VUwDgYDVR0PAQH/BAQDAgGGMB0GA1UdJQQWMBQG
+    CCsGAQUFBwMBBggrBgEFBQcDAjB2BggrBgEFBQcBAQRqMGgwJAYIKwYBBQUHMAGG
+    GGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0aHR0cDovL2Nh
+    Y2VydHMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0R2xvYmFsUm9vdENBLmNydDBCBgNV
+    HR8EOzA5MDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vRGlnaUNlcnRH
+    bG9iYWxSb290Q0EuY3JsMD0GA1UdIAQ2MDQwCwYJYIZIAYb9bAIBMAcGBWeBDAEB
+    MAgGBmeBDAECATAIBgZngQwBAgIwCAYGZ4EMAQIDMA0GCSqGSIb3DQEBCwUAA4IB
+    AQCAMs5eC91uWg0Kr+HWhMvAjvqFcO3aXbMM9yt1QP6FCvrzMXi3cEsaiVi6gL3z
+    ax3pfs8LulicWdSQ0/1s/dCYbbdxglvPbQtaCdB73sRD2Cqk3p5BJl+7j5nL3a7h
+    qG+fh/50tx8bIKuxT8b1Z11dmzzp/2n3YWzW2fP9NsarA4h20ksudYbj/NhVfSbC
+    EXffPgK2fPOre3qGNm+499iTcc+G33Mw+nur7SpZyEKEOxEXGlLzyQ4UfaJbcme6
+    ce1XR2bFuAJKZTRei9AqPCCcUZlM51Ke92sRKw2Sfh3oius2FkOH6ipjv3U/697E
+    A7sKPPcw7+uvTPyLNhBzPvOk
     -----END CERTIFICATE-----
   registries.conf: |
     unqualified-search-registries = ["registry.access.redhat.com", "docker.io"]
@@ -41,7 +44,7 @@ data:
       mirror-by-digest-only = true
 
       [[registry.mirror]]
-        location = "registry.clustership.com:5000/openshift-release-dev/ocp-release"
+        location = "mgmtcluster-registry-quay-quay-enterprise.mgmt.espoo.nsn-rdnet.net/ocp4/openshift4"
 
     [[registry]]
       prefix = ""
@@ -49,7 +52,7 @@ data:
       mirror-by-digest-only = true
 
       [[registry.mirror]]
-        location = "registry.clustership.com:5000/openshift-release-dev/ocp-release"
+        location = "mgmtcluster-registry-quay-quay-enterprise.mgmt.espoo.nsn-rdnet.net/ocp4/openshift4"
 
     [[registry]]
       prefix = ""
@@ -57,5 +60,4 @@ data:
       mirror-by-digest-only = true
 
       [[registry.mirror]]
-        location = "registry.clustership.com:5000/rhacm2"
-
+        location = "mgmtcluster-registry-quay-quay-enterprise.mgmt.espoo.nsn-rdnet.net/rhacm2"

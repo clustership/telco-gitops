@@ -2,8 +2,6 @@
 apiVersion: nfd.openshift.io/v1
 kind: NodeFeatureDiscovery
 metadata:
-  annotations:
-    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
   name: nfd-instance
   namespace: openshift-nfd
 spec:

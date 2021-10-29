@@ -1,0 +1,27 @@
+---
+apiVersion: config.openshift.io/v1
+kind: OperatorHub
+metadata:
+  name: cluster
+spec:
+  disableAllDefaultSources: true
+---
+#
+# Change registry and version appropriately
+#
+apiVersion: operators.coreos.com/v1alpha1
+kind: CatalogSource
+metadata:
+  name: mirrored-rh-operator-catalog
+  namespace: openshift-marketplace
+spec:
+  sourceType: grpc
+  image: mgmtcluster-registry-quay-quay-enterprise.mgmt.espoo.nsn-rdnet.net/ocp4-operators/redhat-operator-index:v4.8
+  displayName: Nokia Lab
+  publisher: nokialab
+  secrets:
+  - mirror-pull-secret
+  updateStrategy:
+    registryPoll:
+      interval: 30m
+

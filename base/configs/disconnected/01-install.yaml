@@ -29,8 +29,6 @@ apiVersion: operator.openshift.io/v1alpha1
 kind: ImageContentSourcePolicy
 metadata:
   name: redhat-operator-index
-  resourceVersion: "1279168"
-  uid: 674855af-d1ec-4f09-8d87-c68e27607194
 spec:
   repositoryDigestMirrors:
   - mirrors:

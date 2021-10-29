@@ -19,7 +19,7 @@ bases:
   # Enable SCTP, VLAN, vhost_net
   - ../../base/configs/network_modules
   # Node Features Discovery
-  - ../../base/operators/openshift-nfd
+  ### - ../../base/operators/openshift-nfd
   # Node Features Discovery configuration
   ### - ../../base/configs/openshift-nfd
   # SRIOV
@@ -35,7 +35,7 @@ bases:
   # Hack to merge all kubeletconfig (must be removed later)
   - ../../base/configs/kubeletconfig-hack
   # PTP
-  - ../../base/operators/openshift-ptp
+  ### - ../../base/operators/openshift-ptp
   # PTP Config
   ### - ../../base/configs/ptp
   # Intel vRAN Acceleration Operators

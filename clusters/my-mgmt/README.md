@@ -19,17 +19,6 @@ cp fullchain.crt unencrypted.key certs
 ./tools/xx
 ```
 
-# Deploy a gitops managed hubCluster
-
-
-## Deploy OpenShift GitOps operator and trigger post-configuration
-
-First of all, GitOps operator must be deployed on the management cluster:
-
-```bash
-oc apply -k my-mgmt
-```
-
 ## Download argocd cli
 
 For MacOS
@@ -43,6 +32,18 @@ For RHEL/CentOS
 ```bash
 sudo curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
 sudo chmod +x /usr/local/bin/argocd
+```
+
+# Deploy a gitops managed hubCluster
+
+
+## Deploy OpenShift GitOps operator and trigger post-configuration
+
+First of all, GitOps operator must be deployed on the management cluster:
+
+```bash
+cd <git root>/clusters/my-mgmt
+oc apply -k .
 ```
 
 ## Get argocd admin password and argocd web-ui url

@@ -1,47 +1,9 @@
 ---
-#
-# Wait for multiclusterhub csv to be ready to continue
-#
-apiVersion: batch/v1
-kind: Job
-metadata:
-  annotations:
-    argocd.argoproj.io/hook: PreSync
-    argocd.argoproj.io/hook-delete-policy: HookSucceeded
-  name: nfd-csv-wait-job
-  # generateName: csv-wait-job-
-  namespace: openshift-gitops
-spec:
-  template:
-    spec:
-      containers:
-        - image: registry.redhat.io/openshift4/ose-cli:latest
-          command:
-            - /bin/bash
-            - -c
-            - |
-              echo "ArgoCD PreSync Hook"
-              CSV_STATUS="Pausing $SLEEP seconds..."
-              while [ "$CSV_STATUS" != "Succeeded" ]; do
-                echo "Waiting for the NFD Operator to be ready. ($CSV_STATUS)"
-                sleep $SLEEP
-                CSV_STATUS=$( oc -n openshift-nfd get csv -l operators.coreos.com/nfd.openshift-nfd=''  -o jsonpath={..status.phase} )
-              done
-              echo "All done! Hooray!"
-          imagePullPolicy: IfNotPresent
-          name: nfd-csv-wait-job
-          env:
-          - name: SLEEP
-            value: "5"
-      dnsPolicy: ClusterFirst
-      restartPolicy: OnFailure
-      serviceAccount: cli-job-sa
-      serviceAccountName: cli-job-sa
-      terminationGracePeriodSeconds: 30
----
 apiVersion: nfd.openshift.io/v1
 kind: NodeFeatureDiscovery
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
   name: nfd-instance
   namespace: openshift-nfd
 spec:

@@ -3,8 +3,6 @@ kind: NodeFeatureDiscovery
 metadata:
   name: nfd-instance
   namespace: openshift-nfd
-  annotations:
-    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
   instance: "" # instance is empty by default
   operand:

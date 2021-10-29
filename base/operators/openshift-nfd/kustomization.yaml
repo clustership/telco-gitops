@@ -5,8 +5,8 @@ kind: Kustomization
 commonAnnotations:
   # Annotations to work around
   # "can not be managed when in namespaced mode"
-  argocd.argoproj.io/compare-options: IgnoreExtraneous
-  argocd.argoproj.io/sync-options: Prune=false
+  # argocd.argoproj.io/compare-options: IgnoreExtraneous
+  # argocd.argoproj.io/sync-options: Prune=false
   argocd.argoproj.io/sync-wave: "5"
 
 resources:

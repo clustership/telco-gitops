@@ -29,7 +29,7 @@ bases:
   # PAO (4.8)
   - ../../base/operators/openshift-performance-addon-operator
   # PAO Config
-  - ../../base/configs/pao
+  ### - ../../base/configs/pao
   # Unsafe sysctl Config
   - ../../base/configs/unsafe-sysctl
   # Hack to merge all kubeletconfig (must be removed later)

@@ -39,4 +39,3 @@ resources:
 # Create the argocd application that deploy all required operators and configuration.
 #
 - gitops-application.yaml
-

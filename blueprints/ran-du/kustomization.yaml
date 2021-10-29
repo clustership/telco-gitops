@@ -37,9 +37,9 @@ bases:
   # Hack to merge all kubeletconfig (must be removed later)
   - ../../base/configs/kubeletconfig-hack
   # PTP
-  ### - ../../base/operators/openshift-ptp
+  - ../../base/operators/openshift-ptp
   # PTP Config
-  ### - ../../base/configs/ptp
+  - ../../base/configs/ptp
   # Intel vRAN Acceleration Operators
   # - ../../base/operators/vran-acceleration-operators
   # Removes OCP Web Console

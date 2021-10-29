@@ -4,6 +4,7 @@ kind: Kustomization
 
 commonAnnotations:
   argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true,Prune=true
+  argocd.argoproj.io/sync-wave: "55"
 
 resources:
 - 01-ptp-ran-du.yaml

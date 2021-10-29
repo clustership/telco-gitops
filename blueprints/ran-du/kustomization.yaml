@@ -21,7 +21,7 @@ bases:
   # Node Features Discovery
   - ../../base/operators/openshift-nfd
   # Node Features Discovery configuration
-  - ../../base/configs/openshift-nfd
+  ### - ../../base/configs/openshift-nfd
   # SRIOV
   - ../../base/operators/openshift-sriov-network-operator
   # SRIOV Config
@@ -37,7 +37,7 @@ bases:
   # PTP
   - ../../base/operators/openshift-ptp
   # PTP Config
-  - ../../base/configs/ptp
+  ### - ../../base/configs/ptp
   # Intel vRAN Acceleration Operators
   # - ../../base/operators/vran-acceleration-operators
   # Removes OCP Web Console

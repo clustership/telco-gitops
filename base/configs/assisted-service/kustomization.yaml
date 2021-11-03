@@ -12,4 +12,4 @@ resources:
 - 01-assisted-service-config-cm.yaml
 - 02-mirror-registries-cm.yaml
 - 03-assisted-installer-agentserviceconfig.yaml
-# - 03-cluster-image-set.yaml
+- 04-cluster-image-set.yaml

@@ -23,18 +23,9 @@ generatorOptions:
     argocd.argoproj.io/sync-options: Prune=false
 
 
-bases:
-#
-# first-step-gitops is a blueprint that deploy GitOps operator on the cluster.
-# A GitOps (ArgoCD) application is then created to trigger the remaining deployment.
-#
-- ../../blueprints/first-step-gitops
-
-#
-# Edit the following resources and uncomment it to use "official" certificate for Ingres controller (required for mirrored registry if using quay-enterprise operator).
-#
 resources:
 # - 01-public-certificates.yaml
 # - 01-ingress-cert.yaml
 # Create the argocd application that deploy all required operators and configuration.
 #
+- gitops-application.yaml

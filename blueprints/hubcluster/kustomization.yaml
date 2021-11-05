@@ -10,17 +10,17 @@ bases:
 #
 - ../../base/configs/hive
 # Configure assisted-service
-- ../../base/configs/assisted-service
+# - ../../base/configs/assisted-service
 
 #
 # Deploy OCS
 # on BM server, local-storage must be deployed first
 #
-- ../../base/operators/openshift-container-storage/
+# - ../../base/operators/openshift-container-storage/
 #
 # OCS Config
 # Adapt it for BM servers
-- ../../base/configs/openshift-container-storage/
+# - ../../base/configs/openshift-container-storage/
 
 #
 # Deploy Gitea

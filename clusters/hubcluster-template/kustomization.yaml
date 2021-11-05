@@ -6,8 +6,8 @@ commonLabels:
   # topology.kubernetes.io/region: demo
   # Each SITE_ID is a different zone
   #topology.kubernetes.io/zone: sample-zone
-  telco-gitops/cluster-name: poc2-sno-01
-  telco-gitops/cluster-type: sno
+  telco-gitops/cluster-name: hubcluster-template
+  telco-gitops/cluster-type: hubcluster
 
 # commonAnnotations:
 #   # Annotations to work around automatically generated resoruces

@@ -52,5 +52,16 @@ argocd cluster add --kubeconfig /repos/RH_POC/mgmt/automate-assisted-service/tra
 export CLUSTER_NAME=$(oc get clusterdeployment nokia-poc-compact -o jsonpath='{.metadata.name}')
 mkdir -p clusters/${CLUSTER_NAME}
 cp -r clusters/ran-du-template/* clusters/${CLUSTER_NAME}
+oc get secret ${CLUSTER_NAME}-admin-kubeconfig -o jsonpath='{.data.kubeconfig}' | base64 -d > clusters/${CLUSTER_NAME}/kubeconfig
+#
+# Register cluster to argocd
+#
+argocd cluster add --kubeconfig `pwd`/clusters/${CLUSTER_NAME}/kubeconfig admin --name ${CLUSTER_NAME}
+#
+# Wait for cluster to be added to argocd
+# check with
+# % argocd cluster list
+#
+# Then apply configuration
 oc apply -k ./clusters/${CLUSTER_NAME}
 ```

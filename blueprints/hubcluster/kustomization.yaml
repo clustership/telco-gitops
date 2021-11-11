@@ -1,0 +1,35 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+bases:
+# Deploy RHACM
+- ../../base/operators/advanced-cluster-management/
+#
+# Patch hiveConfig to get assisted-service running
+#
+- ../../base/configs/hive
+# Configure assisted-service
+- ../../base/configs/assisted-service
+
+#
+# Deploy OCS
+# on BM server, local-storage must be deployed first
+#
+- ../../base/operators/openshift-container-storage/
+#
+# OCS Config
+# Adapt it for BM servers
+# - ../../base/configs/openshift-container-storage/
+
+#
+# Deploy Gitea
+#
+- ../../base/operators/gitea/
+
+#
+# resources:
+#   - 01-mcp.yaml
+
+# patches:
+# - 01-patch-mcp-master.yaml

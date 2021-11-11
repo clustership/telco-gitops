@@ -1,0 +1,16 @@
+apiVersion: machineconfiguration.openshift.io/v1
+kind: ContainerRuntimeConfig
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "20"
+  name: set-pids-limit
+spec:
+ machineConfigPoolSelector:
+   matchLabels:
+     custom-crio: high-pid-limit
+ containerRuntimeConfig:
+   pidsLimit: -1
+
+#
+# oc label machineconfigpool worker custom-kubelet=small-pods
+#

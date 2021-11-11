@@ -1,0 +1,14 @@
+---
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: Administrators 
+users:
+- nokiaadmin
+---
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: Operations 
+users:
+- operations

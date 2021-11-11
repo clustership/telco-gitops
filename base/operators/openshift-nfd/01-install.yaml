@@ -1,0 +1,69 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: openshift-nfd
+  labels:
+    openshift.io/run-level: "1"
+    openshift.io/cluster-monitoring: "true"
+---
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: openshift-nfd
+  namespace: openshift-nfd
+spec:
+  targetNamespaces:
+  - openshift-nfd
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: nfd
+  namespace: openshift-nfd
+spec:
+  channel: "4.8"
+  installPlanApproval: Automatic
+  name: nfd
+  source: mirrored-rh-operator-catalog
+  sourceNamespace: openshift-marketplace
+---
+#
+# Wait for nfd csv to be ready to continue
+# Not available as openshift-gitops namespace does not exists
+#
+# apiVersion: batch/v1
+# kind: Job
+# metadata:
+#   annotations:
+#     argocd.argoproj.io/hook: PostSync
+#     argocd.argoproj.io/hook-delete-policy: HookSucceeded
+#   name: nfd-csv-wait-job
+#   namespace: openshift-gitops
+# spec:
+#   template:
+#     spec:
+#       containers:
+#         - image: registry.redhat.io/openshift4/ose-cli:latest
+#           command:
+#             - /bin/bash
+#             - -c
+#             - |
+#               echo "ArgoCD PreSync Hook"
+#               CSV_STATUS="Pausing $SLEEP seconds..."
+#               while [ "$CSV_STATUS" != "Succeeded" ]; do
+#                 echo "Waiting for the NFD Operator to be ready. ($CSV_STATUS)"
+#                 sleep $SLEEP
+#                 CSV_STATUS=$( oc -n openshift-nfd get csv -l operators.coreos.com/nfd.openshift-nfd='' -o jsonpath={..status.phase} )
+#               done
+#               echo "All done! Hooray!"
+#           imagePullPolicy: IfNotPresent
+#           name: nfd-csv-wait-job
+#           env:
+#           - name: SLEEP
+#             value: "5"
+#       dnsPolicy: ClusterFirst
+#       restartPolicy: OnFailure
+#       serviceAccount: cli-job-sa
+#       serviceAccountName: cli-job-sa
+#       terminationGracePeriodSeconds: 30

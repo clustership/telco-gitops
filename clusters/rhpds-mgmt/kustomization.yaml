@@ -1,0 +1,42 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+commonLabels:
+  # topology.kubernetes.io/region: demo
+  # Each SITE_ID is a different zone
+  #topology.kubernetes.io/zone: sample-zone
+  telco-gitops/cluster-name: poc2-sno-01
+  telco-gitops/cluster-type: sno
+
+# commonAnnotations:
+#   # Annotations to work around automatically generated resoruces
+#   # to avoid ArgoCD reporing out-of-sync
+#   argcd.argoproj.io/compare-options: IgnoreExtraneous
+#   argocd.argoproj.io/sync-options: Prune=false
+
+generatorOptions:
+  # Annotations to work around automatically generated resoruces
+  # to avoid ArgoCD reporing out-of-sync
+  annotations:
+    argcd.argoproj.io/compare-options: IgnoreExtraneous
+    argocd.argoproj.io/sync-options: Prune=false
+
+
+bases:
+- ../../blueprints/first-step-gitops
+
+resources:
+#- 01-public-certificates.yaml
+#- 01-ingress-cert.yaml
+#
+# don't use this one if you don't have login/password credentials configured in idp
+#
+# - 02-api-cert.yaml
+- 02-argocd-certs.yaml
+#
+# temporarely removed for debug purpose
+- gitops-application.yaml
+# patchesStrategicMerge:
+# - node-role.yaml
+#  - ./00-patch.yaml

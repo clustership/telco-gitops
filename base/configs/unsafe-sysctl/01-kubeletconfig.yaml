@@ -1,0 +1,14 @@
+apiVersion: machineconfiguration.openshift.io/v1
+kind: KubeletConfig
+metadata:
+  name: unsafe-sysctl
+spec:
+  machineConfigPoolSelector:
+    matchLabels:
+      custom-kubelet/unsafe-sysctl: ""
+  kubeletConfig:
+    allowedUnsafeSysctls:
+    - "kernel.msg*"
+    - "net.core.somaxconn"
+    - "net.ipv6.conf.all.accept_ra"
+    - "net.ipv6.conf.default.accept_ra"

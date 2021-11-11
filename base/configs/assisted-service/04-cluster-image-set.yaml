@@ -1,0 +1,41 @@
+apiVersion: hive.openshift.io/v1
+kind: ClusterImageSet
+metadata:
+  name: 'openshift-4.8'
+spec:
+  releaseImage: 'registry.clustership.com:5000/openshift-release-dev/ocp-release:4.8.12-x86_64'
+---
+apiVersion: hive.openshift.io/v1
+kind: ClusterImageSet
+metadata:
+  name: 'openshift-4.8.9'
+spec:
+  releaseImage: 'registry.clustership.com:5000/openshift-release-dev/ocp-release:4.8.9-x86_64'
+---
+apiVersion: hive.openshift.io/v1
+kind: ClusterImageSet
+metadata:
+  name: 'openshift-4.8.5'
+spec:
+  releaseImage: 'registry.clustership.com:5000/openshift-release-dev/ocp-release:4.8.5-x86_64'
+---
+apiVersion: hive.openshift.io/v1
+kind: ClusterImageSet
+metadata:
+  name: 'openshift-4.9.0'
+spec:
+  releaseImage: 'mgmtcluster-registry-quay-quay-enterprise.mgmt.espoo.nsn-rdnet.net/ocp4/openshift4:4.9.0-x86_64'
+---
+apiVersion: hive.openshift.io/v1
+kind: ClusterImageSet
+metadata:
+  name: 'openshift-4.9.4'
+spec:
+  releaseImage: 'mgmtcluster-registry-quay-quay-enterprise.mgmt.espoo.nsn-rdnet.net/ocp4/openshift4:4.9.4-x86_64'
+---
+apiVersion: hive.openshift.io/v1
+kind: ClusterImageSet
+metadata:
+  name: 'openshift-4.9.5'
+spec:
+  releaseImage: 'mgmtcluster-registry-quay-quay-enterprise.mgmt.espoo.nsn-rdnet.net/ocp4/openshift4:4.9.5-x86_64'

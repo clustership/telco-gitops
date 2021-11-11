@@ -1,0 +1,15 @@
+#
+# oc label machineconfigpool worker custom-kubelet=small-pods
+#
+apiVersion: machineconfiguration.openshift.io/v1
+kind: KubeletConfig
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "20"
+  name: worker-kubeconfig-fix
+spec:
+  machineConfigPoolSelector:
+    matchLabels:
+      custom-kubelet/small-pods: ""
+  kubeletConfig:
+      podPidsLimit: 4096

@@ -1,0 +1,42 @@
+# RM 20
+#
+# User master node-role as for SNO and compact cluster master take over other node roles for MCP
+#
+---
+apiVersion: performance.openshift.io/v2
+kind: PerformanceProfile
+metadata:
+  name: ran-du-profile0
+spec:
+  additionalKernelArgs:
+  - nmi_watchdog=0
+  - audit=0
+  - mce=off
+  - processor.max_cstate=1
+  - idle=poll
+  - intel_idle.max_cstate=0
+  - nohz=off
+  cpu:
+    isolated: "4-31"
+    reserved: "0-3"
+  globallyDisableIrqLoadBalancing: false
+  # net:
+  #   userLevelNetworking: true
+  #   devices:
+  #   - interfaceName: "eno8*"
+  #   - interfaceName: "ens3*"
+  #   - interfaceName: "ens4*"
+  hugepages:
+    defaultHugepagesSize: "1G"
+    pages:
+    - size: "1G"
+      count: 16
+      node: 0
+  numa:
+    topologyPolicy: best-effort
+  realTimeKernel:
+    enabled: false
+  machineConfigPoolSelector:
+    pools.operator.machineconfiguration.openshift.io/master: ""
+  nodeSelector:
+    node-role.kubernetes.io/master: ""

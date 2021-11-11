@@ -1,0 +1,10 @@
+apiVersion: machineconfiguration.openshift.io/v1
+kind: MachineConfigPool
+metadata:
+  name: master
+  annotations:
+    argocd.argoproj.io/sync-wave: "10"
+  labels:
+    custom-crio: high-pid-limit
+    custom-kubelet/unsafe-sysctl: ""
+spec: {}

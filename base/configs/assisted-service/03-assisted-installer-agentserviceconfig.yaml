@@ -1,0 +1,33 @@
+apiVersion: agent-install.openshift.io/v1beta1
+kind: AgentServiceConfig
+metadata:
+  name: agent
+spec:
+  databaseStorage:
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+        storage: 20Gi
+  filesystemStorage:
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+        storage: 20Gi
+  mirrorRegistryRef:
+    name: "disconnected-mirror-config"
+  osImages:
+  - openshiftVersion: '4.8'
+    rootFSUrl: >-
+      http://192.168.168.36/rhcos/4.8/4.8.2/rhcos-live-rootfs.x86_64.img
+    url: >-
+      https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.9/4.9.0/rhcos-4.9.0-x86_64-live.x86_64.iso
+    version: 48.84.202107202156-0
+  - openshiftVersion: '4.9'
+    rootFSUrl: >-
+      http://10.20.129.82/RH_POC/poc-nokia-mn/images/4.9.0-x86_64/rhcos-49.84.202110081407-0-live-rootfs.x86_64.img
+    url: >-
+      http://10.20.129.82/RH_POC/poc-nokia-mn/images/4.9.0-x86_64/rhcos-49.84.202110081407-0-live.x86_64.iso
+    version: 49.84.202110081407-0
+

@@ -4,8 +4,5 @@ metadata:
   name: auto-discover-devices
   namespace: openshift-local-storage
 spec:
-  nodeSelector: 
-    nodeSelectorTerms:
-    - matchExpressions:
-        - key: ran.openshift.io/lso
-          operator: Exists
+  nodeSelector:
+    node-role.kubernetes.io/master: ""

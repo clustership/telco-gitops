@@ -14,9 +14,11 @@ metadata:
   name: openshift-local-storage-operator
   namespace: openshift-local-storage
 spec:
-  channel: "4.8"
+  channel: "4.9"
   installPlanApproval: Automatic
   name: local-storage-operator
   # Modify source name of the catalogsource for isolated network deployments
-  source: redhat-operators
+  # source: redhat-operators
+  # sourceNamespace: openshift-marketplace
+  source: mirrored-rh-operator-catalog
   sourceNamespace: openshift-marketplace

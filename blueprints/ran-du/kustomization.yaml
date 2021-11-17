@@ -16,6 +16,16 @@ bases:
   - ../../base/operators/local-storage-operator
   # LSO auto-discovery label
   # - ../../base/configs/lso
+  #
+  # Deploy OCS
+  # on BM server, local-storage must be deployed first
+  #
+  - ../../base/operators/openshift-container-storage/
+  #
+  # OCS Config
+  # Adapt it for BM servers
+  - ../../base/configs/openshift-container-storage/
+
   # Common Telco Optimizations
   - ../../base/configs/telco-optimized
   # Enable SCTP, VLAN, vhost_net

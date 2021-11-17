@@ -1,11 +1,14 @@
----
-apiVersion: config.openshift.io/v1
-kind: Scheduler
-metadata:
-  name: cluster
-spec:
-  mastersSchedulable: true
-status: {}
+#
+# Already done in telco-optimized
+#
+#---
+#apiVersion: config.openshift.io/v1
+#kind: Scheduler
+#metadata:
+#  name: cluster
+#spec:
+#  mastersSchedulable: true
+#status: {}
 ---
 #
 # Wait for multiclusterhub instance to be ready to continue

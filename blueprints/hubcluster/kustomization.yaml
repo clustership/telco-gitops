@@ -12,6 +12,8 @@ bases:
 # Configure assisted-service
 - ../../base/configs/assisted-service
 
+# local storage operator (for OCS)
+- ../../base/operators/local-storage-operator
 #
 # Deploy OCS
 # on BM server, local-storage must be deployed first

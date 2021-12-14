@@ -6,8 +6,9 @@ commonLabels:
   # topology.kubernetes.io/region: demo
   # Each SITE_ID is a different zone
   #topology.kubernetes.io/zone: sample-zone
-  telco-gitops/cluster-name: poc2-sno-01
+  telco-gitops/cluster-name: mp94-5c-oe1-stack4
   telco-gitops/cluster-type: sno
+  telco-gitops/cluster-role: ran-du
 
 # commonAnnotations:
 #   # Annotations to work around automatically generated resoruces

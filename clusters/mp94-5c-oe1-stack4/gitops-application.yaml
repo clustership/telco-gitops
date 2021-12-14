@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: sno-operators-mp94-5c-oe1-stack4
+  name: sno-operators
   namespace: openshift-gitops
 spec:
   # The argocd project the application belongs to
@@ -11,16 +11,16 @@ spec:
     server: 'https://api.mp94-5c-oe1-stack4.nokia-ocp-poc.espoo.nsn-rdnet.net:6443'
   # Source of the application manifests
   source:
-    repoURL: 'https://github.com/clustership/telco-gitops.git'
+    repoURL: 'https://gitlabe1.ext.net.nokia.com/rcp-infra/telco-gitops.git'
     targetRevision: HEAD
     path: clusters/mp94-5c-oe1-stack4
     directory:
       recurse: false
   # Sync policy
   syncPolicy:
-    automated: 
+    automated:
       prune: false
-      selfHeal: true 
+      selfHeal: true
       allowEmpty: true
     syncOptions:
       # (equivalent to 'kubectl apply --validate=true')

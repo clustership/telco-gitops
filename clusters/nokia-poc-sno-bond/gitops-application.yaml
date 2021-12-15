@@ -8,7 +8,7 @@ spec:
   # The argocd project the application belongs to
   project: default
   destination:
-    server: 'nokia-poc-sno-bond'
+    name: 'nokia-poc-sno-bond'
   # Source of the application manifests
   source:
     repoURL: 'https://github.com/clustership/telco-gitops.git'

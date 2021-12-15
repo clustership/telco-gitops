@@ -1,0 +1,50 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+commonLabels:
+  telco-gitops/ran-du: telco-gitops
+
+bases:
+  # Configure chrony
+  # - ../../base/configs/chrony
+  # Identity Provider (htpasswd)
+  - ../../base/configs/idp-htpasswd
+  # Configure disconnected catalogsource (and ImageSyncPolicy?)
+  - ../../base/configs/disconnected
+  # local storage operator
+  # - ../../base/operators/local-storage-operator
+  # LSO auto-discovery label
+  # - ../../base/configs/lso
+  # Common Telco Optimizations
+  - ../../base/configs/telco-optimized
+  # Enable SCTP, VLAN, vhost_net
+  - ../../base/configs/network_modules
+  # Node Features Discovery
+  - ../../base/operators/openshift-nfd
+  # Node Features Discovery configuration
+  # - ../../base/configs/openshift-nfd
+  # SRIOV
+  - ../../base/operators/openshift-sriov-network-operator
+  # SRIOV Config
+  # - ../../base/configs/o-ran
+  # PAO (4.8)
+  - ../../base/operators/openshift-performance-addon-operator
+  # PAO Config
+  ## - ../../base/configs/pao
+  # Unsafe sysctl Config
+  - ../../base/configs/unsafe-sysctl
+  # Hack to merge all kubeletconfig (must be removed later)
+  - ../../base/configs/kubeletconfig-hack
+  # PTP
+  - ../../base/operators/openshift-ptp
+  # PTP Config
+  # - ../../base/configs/ptp
+  # Intel vRAN Acceleration Operators
+  # - ../../base/operators/vran-acceleration-operators
+  # Removes OCP Web Console
+  # - ../../configs/web-console
+
+resources:
+  # - 02-ran-du-mcp.yaml
+  # - 50-ran-du-disable-chronyd.yaml

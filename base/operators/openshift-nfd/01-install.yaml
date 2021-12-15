@@ -22,7 +22,7 @@ metadata:
   name: nfd
   namespace: openshift-nfd
 spec:
-  channel: "4.8"
+  channel: "4.9"
   installPlanApproval: Automatic
   name: nfd
   source: mirrored-rh-operator-catalog

@@ -22,7 +22,7 @@ metadata:
   name: ptp-operator-subscription
   namespace: openshift-ptp
 spec:
-  channel: "4.8"
+  channel: "4.9"
   installPlanApproval: Automatic
   name: ptp-operator
   source: mirrored-rh-operator-catalog

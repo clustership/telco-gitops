@@ -22,7 +22,7 @@ metadata:
   name: sriov-network-operator-subscription
   namespace: openshift-sriov-network-operator
 spec:
-  channel: "4.8"
+  channel: "4.9"
   installPlanApproval: Automatic
   name: sriov-network-operator
   source: mirrored-rh-operator-catalog

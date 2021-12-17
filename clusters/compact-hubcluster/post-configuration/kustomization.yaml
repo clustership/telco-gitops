@@ -27,3 +27,11 @@ bases:
 
 #resources:
 #- node-role.yaml
+
+images:
+- name: registry.redhat.io/openshift4/ose-cli
+  newName: hubcluster-registry.apps.mgmt.espoo.nsn-rdnet.net/openshift/ose-cli
+
+# patchesStrategicMerge:
+# - |-
+

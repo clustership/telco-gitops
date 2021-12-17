@@ -12,3 +12,4 @@ kind: Kustomization
 resources:
 - 00-label-master-nodes-for-cephcluster.yaml
 - 01-ocs-storagecluster-compact-cluster.yaml
+- 03-set-default-storageclass.yaml

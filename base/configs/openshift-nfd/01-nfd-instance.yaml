@@ -8,7 +8,7 @@ spec:
   instance: "" # instance is empty by default
   operand:
     namespace: openshift-nfd
-    image: mgmtcluster-registry-quay-quay-enterprise.mgmt.espoo.nsn-rdnet.net/ocp4-operators/openshift4-ose-node-feature-discovery:bc4372fd
+    image: hubcluster-registry.apps.mgmt.espoo.nsn-rdnet.net/operators/openshift4-ose-node-feature-discovery:a9dd76f8b1c6
     imagePullPolicy: Always
   workerConfig:
     configData: |

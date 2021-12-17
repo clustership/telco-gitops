@@ -14,7 +14,4 @@ commonLabels:
 
 resources:
 - 02-hiveconfig.yaml
-# - 03-clusterimageset-4.7.x.yaml
-# - 03-clusterimageset-4.8.0-nightly.yaml
-- 03-clusterimageset-4.8.2.yaml
-- 03-clusterimageset-4.8.5.yaml
+# - 03-clusterimageset-4.8.5.yaml

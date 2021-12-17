@@ -10,3 +10,4 @@ commonAnnotations:
 
 resources:
 - 01-install.yaml
+- 02-imageContentSourcePolicy.yaml

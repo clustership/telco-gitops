@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: disconnected-mirror-config
+  name: disconnected-hubcluster-mirror-config
   namespace: open-cluster-management
   labels:
     app: assisted-service
@@ -44,7 +44,7 @@ data:
       mirror-by-digest-only = true
 
       [[registry.mirror]]
-        location = "mgmtcluster-registry-quay-quay-enterprise.mgmt.espoo.nsn-rdnet.net/ocp4/openshift4"
+        location = "hubcluster-registry.apps.mgmt.espoo.nsn-rdnet.net/openshift/ocp-release"
 
     [[registry]]
       prefix = ""
@@ -52,7 +52,7 @@ data:
       mirror-by-digest-only = true
 
       [[registry.mirror]]
-        location = "mgmtcluster-registry-quay-quay-enterprise.mgmt.espoo.nsn-rdnet.net/ocp4/openshift4"
+        location = "hubcluster-registry.apps.mgmt.espoo.nsn-rdnet.net/openshift/ocp-release"
 
     [[registry]]
       prefix = ""
@@ -60,4 +60,4 @@ data:
       mirror-by-digest-only = true
 
       [[registry.mirror]]
-        location = "mgmtcluster-registry-quay-quay-enterprise.mgmt.espoo.nsn-rdnet.net/rhacm2"
+        location = "hubcluster-registry.apps.mgmt.espoo.nsn-rdnet.net/rhacm2"

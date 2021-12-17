@@ -11,3 +11,4 @@ resources:
   - 03-telco-gitops-cluster-admin.yaml
   # telco-gitops ArgoCD instance
   - 05-argocd-telco-gitops.yaml
+  - 06-openshift-gitops-argocd-application-controller-for-operators.yaml

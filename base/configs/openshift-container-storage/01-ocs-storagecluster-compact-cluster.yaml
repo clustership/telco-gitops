@@ -1,6 +1,8 @@
 apiVersion: ocs.openshift.io/v1
 kind: StorageCluster
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
   name: ocs-storagecluster
   namespace: openshift-storage
 spec:

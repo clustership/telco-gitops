@@ -1,0 +1,17 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+bases:
+# Deploy OpenShift GitOps operator
+- ../first-step-gitops
+
+patchesStrategicMerge:
+- |-
+  apiVersion: operators.coreos.com/v1alpha1
+  kind: Subscription
+  metadata:
+    name: openshift-gitops-operator
+    namespace: openshift-operators
+  spec:
+    source: mirrored-rh-operator-catalog

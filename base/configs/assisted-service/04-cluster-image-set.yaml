@@ -2,6 +2,8 @@
 apiVersion: hive.openshift.io/v1
 kind: ClusterImageSet
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
   name: openshift-4.9.7
 spec:
   releaseImage: hubcluster-registry.apps.mgmt.espoo.nsn-rdnet.net/openshift/ocp-release:4.9.7-x86_64
@@ -9,6 +11,8 @@ spec:
 apiVersion: hive.openshift.io/v1
 kind: ClusterImageSet
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
   name: openshift-4.9.9
 spec:
   releaseImage: hubcluster-registry.apps.mgmt.espoo.nsn-rdnet.net/openshift/ocp-release:4.9.9-x86_64

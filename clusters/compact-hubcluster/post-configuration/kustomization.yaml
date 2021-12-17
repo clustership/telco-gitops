@@ -32,6 +32,32 @@ images:
 - name: registry.redhat.io/openshift4/ose-cli
   newName: hubcluster-registry.apps.mgmt.espoo.nsn-rdnet.net/openshift/ose-cli
 
+patchesStrategicMerge:
+- |-
+  apiVersion: operators.coreos.com/v1alpha1
+  kind: Subscription
+  metadata:
+    name: advanced-cluster-management
+    namespace: open-cluster-management
+  spec:
+    source: mirrored-rh-operator-catalog
+- |-
+  apiVersion: operators.coreos.com/v1alpha1
+  kind: Subscription
+  metadata:
+    name: openshift-local-storage-operator
+    namespace: openshift-local-storage
+  spec:
+    source: mirrored-rh-operator-catalog
+- |-
+  apiVersion: operators.coreos.com/v1alpha1
+  kind: Subscription
+  metadata:
+    name: ocs-subscription
+    namespace: openshift-storage
+  spec:
+    source: mirrored-rh-operator-catalog
+
 # patchesStrategicMerge:
 # - |-
 

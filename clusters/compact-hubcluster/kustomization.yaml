@@ -15,12 +15,12 @@ commonLabels:
 #   argcd.argoproj.io/compare-options: IgnoreExtraneous
 #   argocd.argoproj.io/sync-options: Prune=false
 
-generatorOptions:
-  # Annotations to work around automatically generated resoruces
-  # to avoid ArgoCD reporing out-of-sync
-  annotations:
-    argcd.argoproj.io/compare-options: IgnoreExtraneous
-    argocd.argoproj.io/sync-options: Prune=false
+#generatorOptions:
+#  # Annotations to work around automatically generated resoruces
+#  # to avoid ArgoCD reporing out-of-sync
+#  annotations:
+#    argcd.argoproj.io/compare-options: IgnoreExtraneous
+#    argocd.argoproj.io/sync-options: Prune=false
 
 
 bases:

@@ -42,7 +42,7 @@ sudo chmod +x /usr/local/bin/argocd
 First of all, GitOps operator must be deployed on the management cluster:
 
 ```bash
-cd <git root>/clusters/my-mgmt
+cd <git root>/clusters/<new-cluster>
 oc apply -k .
 ```
 

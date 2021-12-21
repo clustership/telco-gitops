@@ -9,6 +9,11 @@ kind: Kustomization
 #   argocd.argoproj.io/sync-options: Prune=false
 
 resources:
-- 01-install.yaml
 - 02-imageContentSourcePolicy.yaml
+- 01-install.yaml
 - 99-master-chrony-configuration.yaml
+
+
+images:
+- name: registry.redhat.io/openshift4/ose-cli
+  newName: hubcluster-registry.apps.mgmt.espoo.nsn-rdnet.net/openshift/ose-cli

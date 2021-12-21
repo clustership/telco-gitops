@@ -7,6 +7,12 @@ metadata:
   name: redhat-operator-index-0
 spec:
   repositoryDigestMirrors:
+  #
+  # ose-cli used for Job that requires k8s api interaction
+  #
+  - mirrors:
+    - hubcluster-registry.apps.mgmt.espoo.nsn-rdnet.net/openshift/ose-cli
+    source: registry.redhat.io/openshift4/ose-cl
   - mirrors:
     - hubcluster-registry.apps.mgmt.espoo.nsn-rdnet.net/operators/openshift4-ose-node-feature-discovery
     source: registry.redhat.io/openshift4/ose-node-feature-discovery

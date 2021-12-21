@@ -1,4 +1,36 @@
 ---
+#
+# Wait for multiclusterhub instance to be ready to continue
+#
+# Needs to create cli-job-sa user first
+#
+# apiVersion: batch/v1
+# kind: Job
+# metadata:
+#   annotations:
+#     argocd.argoproj.io/sync-wave: "5"
+#     argocd.argoproj.io/hook: PreSync
+#     argocd.argoproj.io/hook-delete-policy: HookSucceeded
+#   name: operatorhub-disable-all-default-sources
+#   namespace: default
+# spec:
+#   template:
+#     spec:
+#       containers:
+#         - image: registry.redhat.io/openshift4/ose-cli:latest
+#            command:
+#             - /bin/bash
+#             - -c
+#             - |
+#               echo "ArgoCD PreSync Hook"
+#               oc patch operatorhub cluster -p '{"spec": {"disableAllDefaultSources": true}}' --type=merge
+#               echo "OperatorHub patched for disconnected installation! Hooray!"
+#           imagePullPolicy: IfNotPresent
+#           name: operatorhub-disable-all-default-sources
+#       dnsPolicy: ClusterFirst
+#       restartPolicy: OnFailure
+#       terminationGracePeriodSeconds: 30
+---
 apiVersion: config.openshift.io/v1
 kind: OperatorHub
 metadata:

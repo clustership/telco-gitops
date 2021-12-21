@@ -24,5 +24,5 @@ spec:
   channel: stable-4.9
   installPlanApproval: Automatic
   name: odf-operator
-  source: mirrored-rh-operator-catalog
+  source: redhat-operators
   sourceNamespace: openshift-marketplace

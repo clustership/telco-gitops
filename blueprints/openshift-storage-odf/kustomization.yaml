@@ -20,4 +20,4 @@ bases:
   #
   # OCS config
   #
-  # - ../../base/configs/openshift-container-storage
+  - ../../base/configs/openshift-data-foundation

@@ -9,6 +9,7 @@ rules:
   - hive.openshift.io
   - agent-install.openshift.io
   - ocs.openshift.io
+  - odf.openshift.io
   - local.storage.openshift.io
   resources:
   - '*'

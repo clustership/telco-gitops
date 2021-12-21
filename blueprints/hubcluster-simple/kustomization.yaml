@@ -7,7 +7,7 @@ bases:
 # Deploy OCS
 # on BM server, local-storage must be deployed first
 #
-- ../openshift-storage
+- ../openshift-storage-odf
 # - ../../base/operators/openshift-container-storage/
 # Deploy RHACM
 - ../../base/operators/advanced-cluster-management/

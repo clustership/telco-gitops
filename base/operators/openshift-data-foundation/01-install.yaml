@@ -7,11 +7,23 @@ metadata:
 apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
 metadata:
-  name: openshift-storage-zrh44
+  name: openshift-storage-operatorgroup
   namespace: openshift-storage
 spec:
   targetNamespaces:
   - openshift-storage
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: ocs-operator
+  namespace: openshift-storage
+spec:
+  channel: "stable-4.9" # <-- Channel should be modified depending on the OCS version to be installed. Please ensure to maintain compatibility with OCP version
+  installPlanApproval: Automatic
+  name: ocs-operator
+  source: redhat-operators  # <-- Modify the name of the redhat-operators catalogsource if not default
+  sourceNamespace: openshift-marketplace
 ---
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription

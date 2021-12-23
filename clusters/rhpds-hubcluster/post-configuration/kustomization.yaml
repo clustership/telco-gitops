@@ -1,0 +1,36 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+commonLabels:
+  # topology.kubernetes.io/region: demo
+  # Each SITE_ID is a different zone
+  #topology.kubernetes.io/zone: sample-zone
+  telco-gitops/cluster-name: compact-hubcluster
+  telco-gitops/cluster-type: hubcluster
+
+bases:
+- ../../../blueprints/openshift-storage-odf-aws
+# - ../../../blueprints/hubcluster-simple
+
+#  # OpenShift Logging
+#  # - ../../base/operators/openshift-logging
+#  - github.com/openshift-telco/telco-gitops/base/operators/openshift-logging?ref=main
+
+# images:
+# - name: registry.redhat.io/openshift4/ose-cli
+#   newName: hubcluster-registry.apps.mgmt.espoo.nsn-rdnet.net/openshift/ose-cli
+
+# patchesStrategicMerge:
+# - |-
+#   apiVersion: local.storage.openshift.io/v1
+#   kind: LocalVolume
+#   metadata:
+#     name: local-disks
+#     namespace: openshift-local-storage
+#   spec:
+#     storageClassDevices:
+#       - storageClassName: "localblock-sc"
+#         volumeMode: Block
+#         devicePaths:
+#           - /dev/nvme1n1

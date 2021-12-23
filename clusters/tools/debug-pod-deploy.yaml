@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: debug-pod
+  name: debug-pod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: debug-pod
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: debug-pod
+    spec:
+      containers:
+      - command:
+        - /bin/sh
+        - -c
+        - sleep infinity
+        image: quay.io/xymox/ubi8-debug-toolkit
+        name: ubi8-debug-toolkit
+        resources: {}
+status: {}

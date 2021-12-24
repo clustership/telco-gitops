@@ -1,0 +1,36 @@
+---
+#
+# Wait for multiclusterhub instance to be ready to continue
+#
+apiVersion: batch/v1
+kind: Job
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "40"
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+  name: storage-zapdisk-job
+  # generateName: csv-wait-job-
+  namespace: openshift-gitops
+spec:
+  template:
+    spec:
+      containers:
+        - image: registry.redhat.io/openshift4/ose-cli:latest
+          env:
+          - name: DISK_DEVICE
+            value: "/dev/sdb"
+          command:
+            - /bin/bash
+            - -c
+            - |
+              echo "ArgoCD PreSync Hook"
+              for i in $(oc get node -l cluster.ocs.openshift.io/openshift-storage= -o jsonpath='{ .items[*].metadata.name }'); do oc debug node/${i} -- chroot /host /usr/sbin/sgdisk --zap-all ${DISK_DEVICE}; done
+              echo "Labelling done! Hooray!"
+          imagePullPolicy: IfNotPresent
+          name: storage-zapdisk-job
+      dnsPolicy: ClusterFirst
+      restartPolicy: OnFailure
+      serviceAccount: cli-job-sa
+      serviceAccountName: cli-job-sa
+      terminationGracePeriodSeconds: 30

@@ -10,7 +10,6 @@ kind: Kustomization
 #  argocd.argoproj.io/sync-wave: "10"
 
 resources:
-- 00-label-master-nodes-for-cephcluster.yaml
 - 00-zap-disk.yaml
-- 01-odf-storagesystem-compact-cluster.yaml
+- 01-odf-storagesystem.yaml
 - 03-set-default-storageclass.yaml

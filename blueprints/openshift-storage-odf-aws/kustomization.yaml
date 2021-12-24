@@ -13,4 +13,4 @@ bases:
   #
   # OCS config
   #
-  # - ../../base/configs/openshift-data-foundation
+  - ../../base/configs/openshift-data-foundation

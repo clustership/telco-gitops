@@ -23,6 +23,9 @@
 apiVersion: local.storage.openshift.io/v1alpha1
 kind: LocalVolumeSet
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "15"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
   name: odf-localvolumeset
   namespace: openshift-local-storage
 spec:

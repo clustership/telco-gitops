@@ -56,8 +56,8 @@ data:
 
     [[registry]]
       prefix = ""
-      location = "registry.redhat.io/rhacm2"
+      location = "registry.redhat.io/rhacm2/assisted-installer-agent-rhel8"
       mirror-by-digest-only = true
 
       [[registry.mirror]]
-        location = "hubcluster-registry.apps.mgmt.espoo.nsn-rdnet.net/rhacm2"
+        location = "hubcluster-registry.apps.mgmt.espoo.nsn-rdnet.net/operators/rhacm2-assisted-installer-agent-rhel8"

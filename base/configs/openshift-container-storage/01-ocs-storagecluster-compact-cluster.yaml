@@ -10,7 +10,7 @@ spec:
   monDataDirHostPath: /var/lib/rook
   storageDeviceSets:
   - name: ocs-deviceset-localblock-sc
-    count: 3
+    count: 1
     dataPVCTemplate:
       spec:
         accessModes:

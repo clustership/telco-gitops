@@ -1,0 +1,43 @@
+---
+#
+# Wait for multiclusterhub csv to be ready to continue
+#
+apiVersion: batch/v1
+kind: Job
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "45"
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+  name: define-default-storageclass
+  namespace: openshift-gitops
+spec:
+  template:
+    spec:
+      containers:
+        - image: registry.redhat.io/openshift4/ose-cli:latest
+          command:
+            - /bin/bash
+            - -c
+            - |
+              echo "ArgoCD PostSync Hook"
+              SC_STATUS="Pausing $SLEEP seconds..."
+              while [ "$SC_STATUS" != "storageclass.storage.k8s.io/ocs-storagecluster-cephfs" ]; do
+                echo "Waiting for the cephfs storageClass to be ready. ($SC_STATUS)"
+                sleep $SLEEP
+                SC_STATUS=$( oc get storageclass ${DEFAULT_SC} -oname )
+              done
+              oc patch storageclass ${DEFAULT_SC} -p '{"metadata": {"annotations": {"storageclass.kubernetes.io/is-default-class": "true"}}}'
+              echo "All done! Hooray!"
+          imagePullPolicy: IfNotPresent
+          name: define-default-storageclass
+          env:
+          - name: SLEEP
+            value: "5"
+          - name: DEFAULT_SC
+            value: "ocs-storagecluster-ceph-rdb"
+      dnsPolicy: ClusterFirst
+      restartPolicy: OnFailure
+      serviceAccount: cli-job-sa
+      serviceAccountName: cli-job-sa
+      terminationGracePeriodSeconds: 30

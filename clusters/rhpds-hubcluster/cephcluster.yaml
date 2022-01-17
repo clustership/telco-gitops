@@ -1,0 +1,329 @@
+apiVersion: ceph.rook.io/v1
+kind: CephCluster
+metadata:
+  labels:
+    app: ocs-storagecluster
+  name: ocs-storagecluster-cephcluster
+  namespace: openshift-storage
+spec:
+  cephVersion:
+    image: registry.redhat.io/rhceph/rhceph-5-rhel8@sha256:f0c2515320da6417aa29a39d7355a12de8c3e782ec6db85d8273b3024f653d76
+  cleanupPolicy:
+    sanitizeDisks: {}
+  continueUpgradeAfterChecksEvenIfNotHealthy: true
+  crashCollector: {}
+  dashboard: {}
+  dataDirHostPath: /var/lib/rook
+  disruptionManagement:
+    machineDisruptionBudgetNamespace: openshift-machine-api
+    managePodBudgets: true
+  external: {}
+  healthCheck:
+    daemonHealth:
+      mon: {}
+      osd: {}
+      status: {}
+  labels:
+    monitoring:
+      rook.io/managedBy: ocs-storagecluster
+  logCollector:
+    enabled: true
+    periodicity: 24h
+  mgr:
+    modules:
+    - enabled: true
+      name: pg_autoscaler
+    - enabled: true
+      name: balancer
+  mon:
+    count: 3
+    volumeClaimTemplate:
+      metadata: {}
+      spec:
+        resources:
+          requests:
+            storage: 50Gi
+        storageClassName: odf-localvolumeset-sc
+      status: {}
+  monitoring:
+    enabled: true
+    rulesNamespace: openshift-storage
+  network: {}
+  placement:
+    all:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: cluster.ocs.openshift.io/openshift-storage
+              operator: Exists
+      tolerations:
+      - effect: NoSchedule
+        key: node.ocs.openshift.io/storage
+        operator: Equal
+        value: "true"
+    arbiter:
+      tolerations:
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/master
+        operator: Exists
+    mon:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: cluster.ocs.openshift.io/openshift-storage
+              operator: Exists
+      podAntiAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchExpressions:
+            - key: app
+              operator: In
+              values:
+              - rook-ceph-mon
+          topologyKey: topology.kubernetes.io/zone
+  priorityClassNames:
+    mgr: system-node-critical
+    mon: system-node-critical
+    osd: system-node-critical
+  resources:
+    mds:
+      limits:
+        cpu: "3"
+        memory: 8Gi
+      requests:
+        cpu: "3"
+        memory: 8Gi
+    mgr:
+      limits:
+        cpu: "1"
+        memory: 3Gi
+      requests:
+        cpu: "1"
+        memory: 3Gi
+    mon:
+      limits:
+        cpu: "1"
+        memory: 2Gi
+      requests:
+        cpu: "1"
+        memory: 2Gi
+    rgw:
+      limits:
+        cpu: "2"
+        memory: 4Gi
+      requests:
+        cpu: "2"
+        memory: 4Gi
+  security:
+    kms: {}
+  storage:
+    storageClassDeviceSets:
+    - count: 1
+      name: ocs-deviceset-odf-localvolumeset-sc-0
+      placement:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: cluster.ocs.openshift.io/openshift-storage
+                operator: Exists
+        tolerations:
+        - effect: NoSchedule
+          key: node.ocs.openshift.io/storage
+          operator: Equal
+          value: "true"
+        topologySpreadConstraints:
+        - labelSelector:
+            matchExpressions:
+            - key: ceph.rook.io/pvc
+              operator: Exists
+          maxSkew: 1
+          topologyKey: kubernetes.io/hostname
+          whenUnsatisfiable: ScheduleAnyway
+      preparePlacement:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: cluster.ocs.openshift.io/openshift-storage
+                operator: Exists
+        tolerations:
+        - effect: NoSchedule
+          key: node.ocs.openshift.io/storage
+          operator: Equal
+          value: "true"
+        topologySpreadConstraints:
+        - labelSelector:
+            matchExpressions:
+            - key: ceph.rook.io/pvc
+              operator: Exists
+          maxSkew: 1
+          topologyKey: topology.kubernetes.io/zone
+          whenUnsatisfiable: DoNotSchedule
+        - labelSelector:
+            matchExpressions:
+            - key: ceph.rook.io/pvc
+              operator: Exists
+          maxSkew: 1
+          topologyKey: kubernetes.io/hostname
+          whenUnsatisfiable: ScheduleAnyway
+      resources:
+        limits:
+          cpu: "2"
+          memory: 5Gi
+        requests:
+          cpu: "2"
+          memory: 5Gi
+      volumeClaimTemplates:
+      - metadata:
+          annotations:
+            crushDeviceClass: ""
+        spec:
+          accessModes:
+          - ReadWriteOnce
+          resources:
+            requests:
+              storage: "1"
+          storageClassName: odf-localvolumeset-sc
+          volumeMode: Block
+        status: {}
+    - count: 1
+      name: ocs-deviceset-odf-localvolumeset-sc-1
+      placement:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: cluster.ocs.openshift.io/openshift-storage
+                operator: Exists
+        tolerations:
+        - effect: NoSchedule
+          key: node.ocs.openshift.io/storage
+          operator: Equal
+          value: "true"
+        topologySpreadConstraints:
+        - labelSelector:
+            matchExpressions:
+            - key: ceph.rook.io/pvc
+              operator: Exists
+          maxSkew: 1
+          topologyKey: kubernetes.io/hostname
+          whenUnsatisfiable: ScheduleAnyway
+      preparePlacement:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: cluster.ocs.openshift.io/openshift-storage
+                operator: Exists
+        tolerations:
+        - effect: NoSchedule
+          key: node.ocs.openshift.io/storage
+          operator: Equal
+          value: "true"
+        topologySpreadConstraints:
+        - labelSelector:
+            matchExpressions:
+            - key: ceph.rook.io/pvc
+              operator: Exists
+          maxSkew: 1
+          topologyKey: topology.kubernetes.io/zone
+          whenUnsatisfiable: DoNotSchedule
+        - labelSelector:
+            matchExpressions:
+            - key: ceph.rook.io/pvc
+              operator: Exists
+          maxSkew: 1
+          topologyKey: kubernetes.io/hostname
+          whenUnsatisfiable: ScheduleAnyway
+      resources:
+        limits:
+          cpu: "2"
+          memory: 5Gi
+        requests:
+          cpu: "2"
+          memory: 5Gi
+      volumeClaimTemplates:
+      - metadata:
+          annotations:
+            crushDeviceClass: ""
+        spec:
+          accessModes:
+          - ReadWriteOnce
+          resources:
+            requests:
+              storage: "1"
+          storageClassName: odf-localvolumeset-sc
+          volumeMode: Block
+        status: {}
+    - count: 1
+      name: ocs-deviceset-odf-localvolumeset-sc-2
+      placement:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: cluster.ocs.openshift.io/openshift-storage
+                operator: Exists
+        tolerations:
+        - effect: NoSchedule
+          key: node.ocs.openshift.io/storage
+          operator: Equal
+          value: "true"
+        topologySpreadConstraints:
+        - labelSelector:
+            matchExpressions:
+            - key: ceph.rook.io/pvc
+              operator: Exists
+          maxSkew: 1
+          topologyKey: kubernetes.io/hostname
+          whenUnsatisfiable: ScheduleAnyway
+      preparePlacement:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: cluster.ocs.openshift.io/openshift-storage
+                operator: Exists
+        tolerations:
+        - effect: NoSchedule
+          key: node.ocs.openshift.io/storage
+          operator: Equal
+          value: "true"
+        topologySpreadConstraints:
+        - labelSelector:
+            matchExpressions:
+            - key: ceph.rook.io/pvc
+              operator: Exists
+          maxSkew: 1
+          topologyKey: topology.kubernetes.io/zone
+          whenUnsatisfiable: DoNotSchedule
+        - labelSelector:
+            matchExpressions:
+            - key: ceph.rook.io/pvc
+              operator: Exists
+          maxSkew: 1
+          topologyKey: kubernetes.io/hostname
+          whenUnsatisfiable: ScheduleAnyway
+      resources:
+        limits:
+          cpu: "2"
+          memory: 5Gi
+        requests:
+          cpu: "2"
+          memory: 5Gi
+      volumeClaimTemplates:
+      - metadata:
+          annotations:
+            crushDeviceClass: ""
+        spec:
+          accessModes:
+          - ReadWriteOnce
+          resources:
+            requests:
+              storage: "1"
+          storageClassName: odf-localvolumeset-sc
+          volumeMode: Block
+        status: {}

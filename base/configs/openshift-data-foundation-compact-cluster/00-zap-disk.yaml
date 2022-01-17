@@ -25,7 +25,7 @@ spec:
             - -c
             - |
               echo "ArgoCD PreSync Hook"
-              for i in $(oc get node -l cluster.ocs.openshift.io/openshift-storage= -o jsonpath='{ .items[*].metadata.name }'); do oc debug node/${i} -- chroot /host /usr/sbin/sgdisk --zap-all ${DISK_DEVICE}; done
+              for i in $(oc get node -l node-role.kubernetes.io/master= -o jsonpath='{ .items[*].metadata.name }'); do oc debug node/${i} -- chroot /host /usr/sbin/sgdisk --zap-all ${DISK_DEVICE}; done
               echo "Labelling done! Hooray!"
           imagePullPolicy: IfNotPresent
           name: storage-zapdisk-job

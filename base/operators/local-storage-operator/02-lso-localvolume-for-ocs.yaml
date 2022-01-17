@@ -37,8 +37,11 @@ spec:
   nodeSelector:
     nodeSelectorTerms:
     - matchExpressions:
-      - key: cluster.ocs.openshift.io/openshift-storage
+      - key: node-role.kubernetes.io/master
         operator: Exists
+# For specific node selection (other than ceph on masters)
+#      - key: cluster.ocs.openshift.io/openshift-storage
+#        operator: Exists
   storageClassName: odf-localvolumeset-sc
   tolerations:
   - effect: NoSchedule

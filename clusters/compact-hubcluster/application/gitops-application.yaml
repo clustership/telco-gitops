@@ -1,4 +1,16 @@
 ---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: private-gitlab-telco-gitops-repo
+  namespace: openshift-gitops
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  url: https://gitlabe1.ext.net.nokia.com/rcp-infra/telco-gitops.git
+  password: YPm9QTFwifAbi3Zssrwa
+  username: not-used
+---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:

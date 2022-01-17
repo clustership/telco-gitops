@@ -173,3 +173,13 @@ spec:
   # Sync policy
   [...]
 ```
+
+
+Create the ArgoCD application to trigger hubcluster (ODF+ACM+AI deployment):
+
+```bash
+oc apply -k ./application
+
+argocd app list
+
+```

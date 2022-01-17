@@ -16,7 +16,8 @@ bases:
 # Deploy OCS
 # on BM server, local-storage must be deployed first
 #
-- ../../base/operators/openshift-container-storage/
+# Change this for ODF
+# - ../../base/operators/openshift-container-storage/
 #
 # OCS Config
 # Adapt it for BM servers
@@ -25,7 +26,7 @@ bases:
 #
 # Deploy Gitea
 #
-- ../../base/operators/gitea/
+# - ../../base/operators/gitea/
 
 #
 # resources:

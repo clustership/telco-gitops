@@ -22,7 +22,7 @@ spec:
             - |
               echo "ArgoCD PostSync Hook"
               SC_STATUS="Pausing $SLEEP seconds..."
-              while [ "$SC_STATUS" != "storageclass.storage.k8s.io/ocs-storagecluster-cephfs" ]; do
+              while [ "$SC_STATUS" != "storageclass.storage.k8s.io/${DEFAULT_SC}" ]; do
                 echo "Waiting for the ${DEFAULT_SC} storageClass to be ready. ($SC_STATUS)"
                 sleep $SLEEP
                 SC_STATUS=$( oc get storageclass ${DEFAULT_SC} -oname )

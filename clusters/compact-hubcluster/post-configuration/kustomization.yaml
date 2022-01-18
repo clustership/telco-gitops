@@ -19,6 +19,7 @@ generatorOptions:
 
 bases:
 # - ../../base/configs/all-common
+- ../../base/configs/compact-cluster
 - ../../../blueprints/hubcluster-simple
 
 #  # OpenShift Logging

@@ -35,7 +35,7 @@ spec:
           - name: SLEEP
             value: "5"
           - name: DEFAULT_SC
-            value: "ocs-storagecluster-ceph-rdb"
+            value: "ocs-storagecluster-ceph-rbd"
       dnsPolicy: ClusterFirst
       restartPolicy: OnFailure
       serviceAccount: cli-job-sa

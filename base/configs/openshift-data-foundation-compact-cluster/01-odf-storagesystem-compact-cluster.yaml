@@ -27,6 +27,7 @@ kind: StorageSystem
 metadata:
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "25"
   name: ocs-storagecluster-storagesystem
   namespace: openshift-storage
 spec:

@@ -1,51 +1,51 @@
-# ---
-# apiVersion: local.storage.openshift.io/v1
-# kind: LocalVolume
-# metadata:
-#   name: local-disks
-#   namespace: openshift-local-storage 
-#   annotations:
-#     argocd.argoproj.io/sync-wave: "10"
-#     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-# spec:
-#   managementState: Managed
-#   nodeSelector: 
-#     nodeSelectorTerms:
-#     - matchExpressions:
-#         - key: cluster.ocs.openshift.io/openshift-storage
-#           operator: Exists
-#   storageClassDevices:
-#     - storageClassName: "localblock-sc" 
-#       volumeMode: Block  
-#       devicePaths: 
-#         - /dev/sdb
 ---
-apiVersion: local.storage.openshift.io/v1alpha1
-kind: LocalVolumeSet
+apiVersion: local.storage.openshift.io/v1
+kind: LocalVolume
 metadata:
+  name: local-disks
+  namespace: openshift-local-storage 
   annotations:
-    argocd.argoproj.io/sync-wave: "15"
+    argocd.argoproj.io/sync-wave: "10"
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-  name: odf-localvolumeset
-  namespace: openshift-local-storage
 spec:
-  deviceInclusionSpec:
-    deviceTypes:
-    - disk
-    - part
-    minSize: 400Gi
-  nodeSelector:
+  managementState: Managed
+  nodeSelector: 
     nodeSelectorTerms:
     - matchExpressions:
-      - key: node-role.kubernetes.io/master
-        operator: Exists
-# For specific node selection (other than ceph on masters)
-#      - key: cluster.ocs.openshift.io/openshift-storage
-#        operator: Exists
-  storageClassName: odf-localvolumeset-sc
-  tolerations:
-  - effect: NoSchedule
-    key: node.ocs.openshift.io/storage
-    operator: Equal
-    value: "true"
-  volumeMode: Block
+        - key: cluster.ocs.openshift.io/openshift-storage
+          operator: Exists
+  storageClassDevices:
+    - storageClassName: "odf-localvolumeset-sc"
+      volumeMode: Block  
+      devicePaths: 
+        - /dev/sdb
+---
+# apiVersion: local.storage.openshift.io/v1alpha1
+# kind: LocalVolumeSet
+# metadata:
+#   annotations:
+#     argocd.argoproj.io/sync-wave: "15"
+#     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+#   name: odf-localvolumeset
+#   namespace: openshift-local-storage
+# spec:
+#   deviceInclusionSpec:
+#     deviceTypes:
+#     - disk
+#     - part
+#     minSize: 400Gi
+#   nodeSelector:
+#     nodeSelectorTerms:
+#     - matchExpressions:
+#       - key: node-role.kubernetes.io/master
+#         operator: Exists
+# # For specific node selection (other than ceph on masters)
+# #      - key: cluster.ocs.openshift.io/openshift-storage
+# #        operator: Exists
+#   storageClassName: odf-localvolumeset-sc
+#   tolerations:
+#   - effect: NoSchedule
+#     key: node.ocs.openshift.io/storage
+#     operator: Equal
+#     value: "true"
+#   volumeMode: Block

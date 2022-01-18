@@ -18,6 +18,7 @@ spec:
     - storageClassName: "odf-localvolumeset-sc"
       volumeMode: Block  
       devicePaths: 
+        - /dev/sda
         - /dev/sdb
 ---
 # apiVersion: local.storage.openshift.io/v1alpha1

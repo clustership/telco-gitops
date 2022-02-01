@@ -9,9 +9,13 @@ resources:
 - 00-mcp-master.yaml
 - 00-master-schedulable.yaml
 # - 01-config-ingress.yaml
-- 01-max-pods-500.yaml
+# Merged into only one Kubeletconfig. Waiting for https://bugzilla.redhat.com/show_bug.cgi?id=2013216 (kubeletconfig.experimental annotation).
+# See: https://bugzilla.redhat.com/show_bug.cgi?id=1967911
+# - 01-max-pods-500.yaml
 - 02-high-pids-limit.yaml
-- 02-pod-pids-limit.yaml
+# Merged into only one Kubeletconfig. Waiting for https://bugzilla.redhat.com/show_bug.cgi?id=2013216 (kubeletconfig.experimental annotation).
+# See: https://bugzilla.redhat.com/show_bug.cgi?id=1967911
+# - 02-pod-pids-limit.yaml
 # - 50-worker-fix-ipi-rwn.yaml
 
 # patches:

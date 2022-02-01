@@ -39,6 +39,18 @@ sudo chmod +x /usr/local/bin/argocd
 
 ## Register cluster to argocd
 
+### Authenticate to argocd server
+
+Get access to ArgoCD:
+
+```bash
+ARGOCD_ADMIN_PASSWORD=$(oc -n openshift-gitops get secret openshift-gitops-cluster -o jsonpath='{.data.admin\.password}' | base64 -d)
+echo $ARGOCD_ADMIN_PASSWORD
+ARGOCD_HOST="$(oc -n openshift-gitops get route openshift-gitops-server -o jsonpath='{.spec.host}')"
+echo $ARGOCD_HOST
+argocd login --username admin --password ${ARGOCD_ADMIN_PASSWORD} ${ARGOCD_HOST}
+```
+
 ```bash
 argocd cluster add --kubeconfig /repos/RH_POC/mgmt/automate-assisted-service/transfert/nokia-poc-compact/kubeconfig.compact admin --name nokia-poc-compact
 ```
@@ -49,7 +61,8 @@ argocd cluster add --kubeconfig /repos/RH_POC/mgmt/automate-assisted-service/tra
 ### Copy template directory to create directory for your cluster
 
 ```bash
-export CLUSTER_NAME=$(oc get clusterdeployment nokia-poc-compact -o jsonpath='{.metadata.name}')
+export CLUSTER_NAMESPACE=<cluster-namespace>
+export CLUSTER_NAME=$(oc get clusterdeployment ${CLUSTER_NAMESPACE} -o jsonpath='{.metadata.name}')
 mkdir -p clusters/${CLUSTER_NAME}
 cp -r clusters/ran-du-template/* clusters/${CLUSTER_NAME}
 oc get secret ${CLUSTER_NAME}-admin-kubeconfig -o jsonpath='{.data.kubeconfig}' | base64 -d > clusters/${CLUSTER_NAME}/kubeconfig

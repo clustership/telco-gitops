@@ -31,12 +31,15 @@
 #       restartPolicy: OnFailure
 #       terminationGracePeriodSeconds: 30
 ---
-apiVersion: config.openshift.io/v1
-kind: OperatorHub
-metadata:
-  name: cluster
-spec:
-  disableAllDefaultSources: true
+#
+# It is not really required as it is supposed to be done with extra manifests at installation time
+# 
+# apiVersion: config.openshift.io/v1
+# kind: OperatorHub
+# metadata:
+#   name: cluster
+# spec:
+#   disableAllDefaultSources: true
 ---
 #
 # Change registry and version appropriately
